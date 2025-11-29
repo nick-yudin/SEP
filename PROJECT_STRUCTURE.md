@@ -1,95 +1,73 @@
-# RESONANCE Project Structure & Governance
+# Resonance Protocol Project Structure
 
-**Documentation and Code Management Strategy**
+This document serves as the canonical map for the Resonance Monorepo, defining the single source of truth for specifications, implementations, and documentation.
 
-This document outlines the repository organization for the RESONANCE project, along with formatting standards and language policies.
+## Core Hierarchy
 
-## 1. File Tree Structure
+The repository is organized by function to support development across documentation (Docusaurus) and various programming languages (Python, C++).
 
-We utilize a "Monorepo" approach (everything in one place) for the initial phase.
+```mermaid
+graph TD
+    ROOT[resonance-protocol /] --- DOCS[docs/]
+    ROOT --- WEBSITE[website/]
+    ROOT --- REFIMPL[reference_impl/]
+    ROOT --- GITIGNORE(.gitignore)
+
+    DOCS --- D00[00_intro/]
+    DOCS --- D01[01_specs/]
+
+    D00 --- MANIFESTO[manifesto.md]
+    
+    D01 --- V10[v1.0_current/]
+    V10 --- SPECV1[spec_v1_final.md]
+    
+    REFIMPL --- PYTHON[python/]
+    REFIMPL --- CPP[cpp/]
+
+    PYTHON --- SENDER[sender.py]
+    PYTHON --- RECEIVER[receiver.py]
+    PYTHON --- GOSSIP[gossip.py]
+    PYTHON --- ALIGN[alignment.py]
+    PYTHON --- PROTO[resonance.proto]
 
 ```
-/resonance-project
-│
-├── /docs                    <-- SINGLE SOURCE OF TRUTH (STRICTLY ENGLISH)
-│   ├── /00_intro            <-- For newcomers
-│   │   └── manifesto.md     <-- "Level 0" (Philosophy)
-│   │   └── quick-start.md   <-- "How to run"
-│   │
-│   ├── /01_specs            <-- Technical Standards (Hardcore)
-│   │   ├── v1.0_current     <-- Current Stable Version
-│   │   │   └── resonance_unified_spec.md
-│   │   └── v2.0_draft       <-- Future Drafts
-│   │
-│   └── /02_rfc              <-- "Request for Comments"
-│       └── rfc_001_neuromorphic_chips.md
-│
-├── /website                 <-- SITE CODE (Frontend)
-│   │   (Docusaurus/VitePress project)
-│   └── /src/pages/index.js  <-- Landing Page
-│
-├── /reference_impl          <-- REFERENCE CODE
-│   ├── /python_sdk          <-- SDK
-│   └── /examples            <-- Usage Examples
-│
-└── README.md                <-- Repository Entry Point
-```
 
-## 2. Document Versioning
+## Folder Descriptions
 
-Documentation follows the same rules as software (Semantic Versioning).
+### 1. `/docs` (Single Source of Truth)
 
-* **Stable (v1.0):** Content located in the `specifications/v1.0` folder. This is an immutable contract.
-* **Draft (Main Branch):** Ongoing work in the main branch.
-* **Archived:** Old versions are moved to an archive.
+Contains all Markdown documentation that is published via Docusaurus.
 
-**Rule:** The website always displays the **Stable** version by default.
+| Folder | Content | Notes | 
+ | ----- | ----- | ----- | 
+| `00_intro/` | High-level philosophy and project manifest. | Contains **manifesto.md** (Level 0). | 
+| `01_specs/` | Technical specifications and protocol standards. |  | 
+| `01_specs/v1.0_current/` | The active, implemented Level 1 standard. | Contains **spec_v1_final.md**. | 
 
-## 3. Workflow Lifecycle
+### 2. `/website` (Web Front-end)
 
-1. **Modification:** Edits are made to `.md` files in the `/docs` folder.
-2. **Review:** Changes are reviewed for technical accuracy.
-3. **Release:** CI/CD automatically updates https://resonanceprotocol.org.
+Contains the Docusaurus configuration and static assets for [resonanceprotocol.org].
 
-## 4. Audiences and Styles
+| File/Folder | Purpose | Status | 
+ | ----- | ----- | ----- | 
+| `src/` | Custom pages, styles, and React components. | Essential for look & feel. | 
+| `docusaurus.config.js` | Site structure, navigation, and plugins (e.g., KaTeX). |  | 
+| `sidebars.js` | Defines the hierarchical menu for documentation. |  | 
+| `package.json` | Project dependencies (Node/NPM). |  | 
+| `build/` | **Ignored.** Generated static site output. | Stored only on the web server. | 
 
-| Document Type | Location | Target Audience | Style |
-| :--- | :--- | :--- | :--- |
-| **Landing Page** | Website (Home) | Investors, Press | "Visionary", "Future", "Efficiency" |
-| **Manifesto** | `/docs/00_intro` | Visionaries | Emotional, Philosophical |
-| **Specification** | `/docs/01_specs` | Engineers | Dry, Precise Technical English |
-| **Tutorial** | `/docs/tutorials` | Makers | Step-by-step |
+### 3. `/reference_impl` (Code Implementations)
 
-## 5. Tooling
+Contains runnable codebases that adhere strictly to the Level 1 Specification.
 
-1. **Storage:** GitHub.
-2. **Engine:** Docusaurus / VitePress.
-3. **Hosting:** Vercel / GitHub Pages.
+| Folder | Status | Primary Language | 
+ | ----- | ----- | ----- | 
+| `python/` | **MVP Complete.** Includes filtering, Protobuf I/O, alignment, and gossip simulation. | Python 3 | 
+| `cpp/` | *Future Work (Level 2).* Target for low-power microcontroller deployment (ESP32). | C++ | 
 
-## 6. Identity Standards
+## Project Files (Root)
 
-The following details must be used in all public documents (Headers/Footers):
-
-* **Author / Organization:** `rAI Research Collective`
-* **Contact Email:** `1@resonanceprotocol.org`
-* **Official Website:** `https://resonanceprotocol.org`
-* **Twitter (X):** [`@rAI_stack`](https://twitter.com/rAI_stack)
-
-**Document Header Example:**
-```markdown
-# Document Title
-**Author:** rAI Research Collective
-**Contact:** 1@resonanceprotocol.org
-**Web:** [https://resonanceprotocol.org](https://resonanceprotocol.org)
-```
-
-## 7. Language Policy
-
-We adhere to a **Strictly English** policy for all repository contents:
-
-1. **Documentation & Code:**
-   * All files in the `/docs` folder must be in **English**.
-   * All website content must be in **English**.
-   * Code comments and commit messages must be in **English**.
-   * Repository `README.md` and `STRUCTURE.md` must be in **English**.
-2. **Exceptions:** None.
+| File | Purpose | Notes | 
+ | ----- | ----- | ----- | 
+| `.gitignore` | **CRITICAL.** Excludes build artifacts (`node_modules/`, `website/build/`, `.docusaurus/`, Python cache). | Ensures clean Git history. | 
+| `README.md` | General project overview and quick start guide. |  | 

@@ -1,15 +1,23 @@
-# Python artifacts
+# --------------------
+# PYTHON ARTIFACTS
+# --------------------
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual Environment (САМОЕ ВАЖНОЕ)
+*.pyc
+*.pyd
 venv/
-env/
-.env
+.venv/
+.mypy_cache/
 
-# VS Code settings
-.vscode/
-
-# OS specific
+# --------------------
+# Docusaurus / Node ARTIFACTS
+# --------------------
+node_modules/
+.docusaurus/
 .DS_Store
+yarn-error.log
+
+# --------------------
+# WEBSITE BUILD OUTPUT
+# --------------------
+# Crucially, the built static files must not be tracked.
+website/build/
