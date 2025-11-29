@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package resonance;
+
+// The fundamental unit of information exchange in the Resonance Network.
+// We trade Meaning, not raw data.
+message SemanticEvent {
+  // Unique identifier of the transmitting node (e.g., UUID)
+  string source_id = 1;
+
+  // Unix timestamp of when the meaning was realized
+  int64 created_at = 2;
+
+  // The semantic vector (embedding). 
+  // For MVP we use float, future iterations may use quantized int8.
+  repeated float embedding = 3;
+
+  // Optional textual description for debugging/visualization purposes.
+  // In a production "Silent Mesh," this would be omitted to save bandwidth.
+  string debug_label = 4;
+}
