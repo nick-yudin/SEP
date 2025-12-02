@@ -50,7 +50,7 @@ export default function BenchmarkViz() {
   }, [isPlaying, speed, maxTime]);
 
   const mqttTransmissions = currentTime;
-  const resonanceTransmissions = benchmarkData.resonance.transmissions.filter(t => t <= currentTime).length;
+  const resonanceTransmissions = benchmarkData.resonance.transmissions.filter(t => t < currentTime).length;
 
   const mqttBandwidth = (mqttTransmissions / benchmarkData.mqtt.packets_sent * benchmarkData.mqtt.bytes_sent / 1024).toFixed(1);
   const resonanceBandwidth = (resonanceTransmissions / benchmarkData.resonance.packets_sent * benchmarkData.resonance.bytes_sent / 1024).toFixed(1);
@@ -64,6 +64,21 @@ export default function BenchmarkViz() {
 
   return (
     <div className="w-full max-w-6xl mx-auto">
+      {/* Info Banner */}
+      <div className="glass p-4 rounded-xl mb-6 border border-blue-500/20 bg-blue-500/5">
+        <p className="text-sm text-gray-300 text-center">
+          <span className="font-bold text-blue-400">Real Benchmark Data:</span> Vibration sensor monitoring for 1 hour (12,000 samples).{' '}
+          <a
+            href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python/benchmarks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline"
+          >
+            View full methodology →
+          </a>
+        </p>
+      </div>
+
       {/* Controls */}
       <div className="glass p-6 rounded-xl mb-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
@@ -205,30 +220,51 @@ export default function BenchmarkViz() {
       {/* Summary */}
       {currentTime >= maxTime && (
         <div className="glass p-8 rounded-xl border border-signal/20 bg-signal/5 mt-8">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">Final Results</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-sm text-gray-400 mb-2">Packet Reduction</div>
-              <div className="text-4xl font-bold text-signal">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Why Resonance Wins</h3>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="text-center p-6 bg-black/20 rounded-lg">
+              <div className="text-sm text-gray-400 mb-2">Network Traffic</div>
+              <div className="text-5xl font-bold text-signal mb-2">
                 {((1 - benchmarkData.resonance.packets_sent / benchmarkData.mqtt.packets_sent) * 100).toFixed(1)}%
               </div>
-            </div>
-            <div>
-              <div className="text-sm text-gray-400 mb-2">Bandwidth Saved</div>
-              <div className="text-4xl font-bold text-signal">
-                {((benchmarkData.mqtt.bytes_sent - benchmarkData.resonance.bytes_sent) / 1024).toFixed(0)} KB
+              <div className="text-sm text-gray-300">fewer packets sent</div>
+              <div className="text-xs text-gray-500 mt-2">
+                {benchmarkData.resonance.packets_sent.toLocaleString()} vs {benchmarkData.mqtt.packets_sent.toLocaleString()}
               </div>
             </div>
-            <div>
-              <div className="text-sm text-gray-400 mb-2">Energy Efficiency</div>
-              <div className="text-4xl font-bold text-signal">
-                {(benchmarkData.resonance.duty_cycle / benchmarkData.mqtt.duty_cycle).toFixed(2)}×
+
+            <div className="text-center p-6 bg-black/20 rounded-lg">
+              <div className="text-sm text-gray-400 mb-2">Energy Usage</div>
+              <div className="text-5xl font-bold text-signal mb-2">
+                {(benchmarkData.mqtt.duty_cycle / benchmarkData.resonance.duty_cycle).toFixed(1)}×
+              </div>
+              <div className="text-sm text-gray-300">longer battery life</div>
+              <div className="text-xs text-gray-500 mt-2">
+                {benchmarkData.resonance.duty_cycle.toFixed(1)}% vs {benchmarkData.mqtt.duty_cycle}% duty cycle
+              </div>
+            </div>
+
+            <div className="text-center p-6 bg-black/20 rounded-lg">
+              <div className="text-sm text-gray-400 mb-2">Radio Wake-ups</div>
+              <div className="text-5xl font-bold text-signal mb-2">
+                {(benchmarkData.mqtt.packets_sent / benchmarkData.resonance.packets_sent).toFixed(0)}×
+              </div>
+              <div className="text-sm text-gray-300">less often</div>
+              <div className="text-xs text-gray-500 mt-2">
+                Only when meaning changes
               </div>
             </div>
           </div>
-          <p className="text-center text-gray-400 mt-6 text-sm">
-            Silence is the default. Meaning is everything.
-          </p>
+
+          <div className="border-t border-white/10 pt-6">
+            <p className="text-center text-gray-300 text-sm mb-2">
+              <span className="font-bold text-white">The Key Insight:</span> Most sensor data is redundant noise.
+            </p>
+            <p className="text-center text-gray-400 text-sm">
+              Traditional protocols don't know this. Resonance filters at the semantic level.
+            </p>
+          </div>
         </div>
       )}
     </div>
