@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import BenchmarkViz from '@site/src/components/BenchmarkViz';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -196,11 +197,12 @@ export default function Home() {
             RESONANCE
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-            <a href="#shift" className="hover:text-signal transition-colors">The Shift</a>
-            <a href="#axioms" className="hover:text-signal transition-colors">Axioms</a>
-            <a href="#future" className="hover:text-signal transition-colors">Future History</a>
-            <a href="/whitepaper.pdf" target="_blank" className="text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all">
-              Whitepaper (PDF)
+            <a href="#problem" className="hover:text-signal transition-colors">Problem</a>
+            <a href="#status" className="hover:text-signal transition-colors">Status</a>
+            <a href="#demo" className="hover:text-signal transition-colors">Demo</a>
+            <a href="#join" className="hover:text-signal transition-colors">Join</a>
+            <a href="https://github.com/nick-yudin/resonance-protocol" target="_blank" className="text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all">
+              GitHub
             </a>
           </div>
         </div>
@@ -241,8 +243,87 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section: The Problem */}
+      <section id="problem" className="py-32 px-6 bg-silent relative border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-sm font-mono text-signal tracking-widest uppercase mb-6 text-center">The Problem</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-12 text-center max-w-4xl mx-auto">
+            AI is becoming critical infrastructure. And it's controlled by 3 companies in 1 country.
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="glass p-8 rounded-xl">
+              <h4 className="text-xl font-bold text-white mb-6">The Monopoly</h4>
+              <ul className="space-y-4 text-gray-400">
+                <li className="flex items-start gap-3">
+                  <span className="text-signal mt-1">▸</span>
+                  <span><strong className="text-white">NVIDIA</strong> controls the hardware</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-signal mt-1">▸</span>
+                  <span><strong className="text-white">USA</strong> controls NVIDIA (export restrictions on chips)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-signal mt-1">▸</span>
+                  <span><strong className="text-white">OpenAI, Anthropic, Google</strong> control the top models</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-signal mt-1">▸</span>
+                  <span><strong className="text-white">Everyone else</strong> is just a customer — with a kill switch</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="glass p-8 rounded-xl border-signal/30">
+              <h4 className="text-xl font-bold text-white mb-6">The Economics</h4>
+              <div className="space-y-4">
+                <div>
+                  <div className="text-3xl font-bold text-signal mb-2">$100M</div>
+                  <p className="text-gray-400 text-sm">Training cost for a GPT-4 class model</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="text-2xl font-bold text-white mb-2">70%</div>
+                  <p className="text-gray-400 text-sm">Goes to GPU compute — thousands of H100s for months</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-gray-500 text-sm italic">The gap is growing exponentially. This is not about money — it's about control.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="glass p-10 rounded-xl border border-signal/20 bg-signal/5">
+            <h4 className="text-lg font-mono text-signal mb-4 uppercase tracking-wider">The Real Risk</h4>
+            <p className="text-xl text-white mb-4 leading-relaxed">
+              "Turn off your API" = digital blockade.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-400">
+              <div>
+                <strong className="text-white">Europe:</strong> Has Mistral — infinitely weaker, no path to catch up.
+              </div>
+              <div>
+                <strong className="text-white">BRICS:</strong> Has Qwen — controlled by Alibaba, subject to Chinese government.
+              </div>
+              <div>
+                <strong className="text-white">Developing nations:</strong> Have nothing.
+              </div>
+            </div>
+            <p className="text-gray-400 mt-6 text-sm">
+              AI is becoming like oil in the 20th century. Except you can't drill for it.
+            </p>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-2xl text-white font-light max-w-3xl mx-auto">
+              We don't think "catching up" is the answer. <br/>
+              <span className="text-signal font-bold">We think the paradigm itself is wrong.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Section: The Shift */}
-      <section id="shift" className="py-32 px-6 bg-silent relative">
+      <section id="shift" className="py-32 px-6 bg-[#050505] relative border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <div>
@@ -325,8 +406,121 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section: Honest Status */}
+      <section id="status" className="py-32 px-6 bg-silent border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-sm font-mono text-signal tracking-widest uppercase mb-6 text-center">Honest Status</h2>
+          <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-12 text-center">
+            What Works Today vs What We're Researching
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Proven */}
+            <div className="glass p-8 rounded-xl border-green-500/20">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <h4 className="text-xl font-bold text-white">Proven</h4>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Semantic filtering</h5>
+                    <span className="text-xs font-mono text-green-500">WORKING</span>
+                  </div>
+                  <p className="text-sm text-gray-400">90%+ reduction in transmissions. <a href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python/benchmarks" className="text-signal hover:underline">See benchmark →</a></p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Procrustes alignment</h5>
+                    <span className="text-xs font-mono text-green-500">WORKING</span>
+                  </div>
+                  <p className="text-sm text-gray-400">Different models understand each other. Math works.</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Event-driven architecture</h5>
+                    <span className="text-xs font-mono text-green-500">WORKING</span>
+                  </div>
+                  <p className="text-sm text-gray-400">Energy savings measured on edge devices.</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Gossip mesh propagation</h5>
+                    <span className="text-xs font-mono text-green-500">WORKING</span>
+                  </div>
+                  <p className="text-sm text-gray-400">Standard protocol, battle-tested.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Researching */}
+            <div className="glass p-8 rounded-xl border-yellow-500/20">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
+                <h4 className="text-xl font-bold text-white">Researching</h4>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Distributed training on edge</h5>
+                    <span className="text-xs font-mono text-yellow-500">RESEARCH</span>
+                  </div>
+                  <p className="text-sm text-gray-400">DiLoCo, Hivemind show promise. Not production-ready.</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Ternary computing (10-100×)</h5>
+                    <span className="text-xs font-mono text-yellow-500">WAITING</span>
+                  </div>
+                  <p className="text-sm text-gray-400">BitNet works. Waiting for ternary hardware.</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Semantic training efficiency</h5>
+                    <span className="text-xs font-mono text-yellow-500">SPECULATION</span>
+                  </div>
+                  <p className="text-sm text-gray-400">Works for inference, not proven for training yet.</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-bold text-white">Governance mechanisms</h5>
+                    <span className="text-xs font-mono text-yellow-500">DESIGN</span>
+                  </div>
+                  <p className="text-sm text-gray-400">"No one controls" needs real mechanism design.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Our Bet */}
+          <div className="glass p-10 rounded-xl border border-signal/20 bg-signal/5">
+            <h4 className="text-lg font-mono text-signal mb-4 uppercase tracking-wider">Our Bet</h4>
+            <div className="space-y-4 text-gray-300">
+              <p className="text-lg">
+                New hardware is coming: <strong className="text-white">memristors, neuromorphic chips, in-memory computing</strong>.
+              </p>
+              <p className="text-lg">
+                When it arrives, the economics of AI will flip. Datacenters won't be the only way.
+              </p>
+              <p className="text-xl text-white font-bold mt-6">
+                We're building the protocol that's ready for that hardware.
+              </p>
+            </div>
+          </div>
+
+          {/* Benchmark Visualization */}
+          <div className="mt-16">
+            <h3 className="text-3xl font-display font-bold text-white mb-8 text-center">See It In Action</h3>
+            <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+              Live simulation comparing traditional approach (MQTT) vs Resonance Protocol over 1 hour of sensor data
+            </p>
+            <BenchmarkViz />
+          </div>
+        </div>
+      </section>
+
       {/* Section: Future History (Fictions) */}
-      <section id="future" className="py-32 px-6 bg-gray-900/20">
+      <section id="future" className="py-32 px-6 bg-[#050505] border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -429,6 +623,149 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section: The Demo */}
+      <section id="demo" className="py-32 px-6 bg-silent border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm font-mono text-signal tracking-widest uppercase mb-6 text-center">The Demo We're Building</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-12 text-center">
+            "The Box in the Café"
+          </h3>
+
+          <div className="glass p-12 rounded-2xl mb-12">
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Imagine this scene:
+            </p>
+
+            <div className="space-y-6 mb-10">
+              <div className="flex gap-4 items-start">
+                <div className="text-signal font-mono text-lg font-bold min-w-[2rem]">1.</div>
+                <p className="text-lg text-gray-300">Someone asks <strong className="text-white">ChatGPT</strong> through their browser</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="text-signal font-mono text-lg font-bold min-w-[2rem]">2.</div>
+                <p className="text-lg text-gray-300">You ask your <strong className="text-white">small device</strong> — same quality answer</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="text-signal font-mono text-lg font-bold min-w-[2rem]">3.</div>
+                <p className="text-lg text-white italic">"Now turn off the internet."</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="text-signal font-mono text-lg font-bold min-w-[2rem]">4.</div>
+                <p className="text-lg text-gray-300">Their ChatGPT is <strong className="text-red-500">dead</strong>. Your box <strong className="text-green-500">still answers</strong>.</p>
+              </div>
+            </div>
+
+            <div className="border-t border-white/10 pt-8">
+              <p className="text-gray-400 mb-6">
+                But wait — the box is too small to hold a full model.
+              </p>
+              <p className="text-lg text-white">
+                Watch the answer <strong className="text-signal">grow</strong> as neighboring nodes contribute through the mesh.
+                Each device adds what it knows. Together, they're smarter than any single node.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="glass p-6 rounded-lg text-center">
+              <div className="text-2xl font-bold text-signal mb-2">✓</div>
+              <p className="text-sm text-gray-300"><strong className="text-white">Intelligence</strong> ≠ datacenter</p>
+            </div>
+            <div className="glass p-6 rounded-lg text-center">
+              <div className="text-2xl font-bold text-signal mb-2">✓</div>
+              <p className="text-sm text-gray-300"><strong className="text-white">Works</strong> offline</p>
+            </div>
+            <div className="glass p-6 rounded-lg text-center">
+              <div className="text-2xl font-bold text-signal mb-2">✓</div>
+              <p className="text-sm text-gray-300"><strong className="text-white">Cannot</strong> be shut down</p>
+            </div>
+            <div className="glass p-6 rounded-lg text-center">
+              <div className="text-2xl font-bold text-signal mb-2">✓</div>
+              <p className="text-sm text-gray-300"><strong className="text-white">No one</strong> controls it</p>
+            </div>
+          </div>
+
+          <p className="text-center text-gray-500 mt-12 italic">
+            This isn't ready yet. But it's what we're building toward.
+          </p>
+        </div>
+      </section>
+
+      {/* Section: Join Us */}
+      <section id="join" className="py-32 px-6 bg-[#050505] border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-sm font-mono text-signal tracking-widest uppercase mb-6 text-center">Join Us</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 text-center max-w-3xl mx-auto">
+            We're looking for people who see the problem and want to build the alternative.
+          </h3>
+          <p className="text-center text-xl text-gray-400 mb-16 max-w-2xl mx-auto">
+            This is a research project, not a startup. We're not promising quick returns.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="glass p-8 rounded-xl">
+              <h4 className="text-xl font-bold text-white mb-4">Engineers</h4>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Extend the reference implementation, experiment with edge hardware, optimize protocols.
+              </p>
+            </div>
+            <div className="glass p-8 rounded-xl">
+              <h4 className="text-xl font-bold text-white mb-4">Researchers</h4>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Distributed training, ternary computing, hyperdimensional computing, governance design.
+              </p>
+            </div>
+            <div className="glass p-8 rounded-xl">
+              <h4 className="text-xl font-bold text-white mb-4">Connectors</h4>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Know someone at a sovereign wealth fund? A European AI initiative? A research lab working on memristors?
+              </p>
+            </div>
+          </div>
+
+          <div className="glass p-10 rounded-2xl border border-signal/20 bg-signal/5 mb-12">
+            <h4 className="text-xl font-bold text-white mb-6 text-center">How to Start</h4>
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold text-signal mb-3">1</div>
+                <p className="text-sm text-gray-300">
+                  <a href="/docs/specs/v1.0_current/spec-v1-final" className="text-white hover:text-signal transition-colors font-bold">Read the spec</a>
+                </p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-signal mb-3">2</div>
+                <p className="text-sm text-gray-300">
+                  <a href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python" className="text-white hover:text-signal transition-colors font-bold">Run the demo</a>
+                </p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-signal mb-3">3</div>
+                <p className="text-sm text-gray-300">
+                  <a href="https://github.com/nick-yudin/resonance-protocol/discussions" className="text-white hover:text-signal transition-colors font-bold">Join the conversation</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center space-y-4">
+            <div className="flex flex-col md:flex-row justify-center gap-6 text-gray-400">
+              <a href="mailto:1@resonanceprotocol.org" className="hover:text-signal transition-colors">
+                <strong className="text-white">Email:</strong> 1@resonanceprotocol.org
+              </a>
+              <a href="https://twitter.com/rAI_stack" target="_blank" className="hover:text-signal transition-colors">
+                <strong className="text-white">Twitter:</strong> @rAI_stack
+              </a>
+              <a href="https://github.com/nick-yudin/resonance-protocol" target="_blank" className="hover:text-signal transition-colors">
+                <strong className="text-white">GitHub:</strong> resonance-protocol
+              </a>
+            </div>
+            <p className="text-gray-500 italic mt-8">
+              We're not trying to beat OpenAI at their game. We're changing the game.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-20 border-t border-white/10 px-6 bg-void">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -447,7 +784,7 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/5 text-center text-xs text-gray-800 font-mono">
-          INITIATED 2025 // rAI RESEARCH COLLECTIVE // SILENCE IS GOLDEN
+          INITIATED 2025 // NIKOLAY YUDIN // SILENCE IS GOLDEN
         </div>
       </footer>
     </div>

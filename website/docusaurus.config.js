@@ -113,7 +113,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} rAI Research Collective.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Nikolay Yudin.`,
       },
       prism: {
         theme: prismThemes.github,

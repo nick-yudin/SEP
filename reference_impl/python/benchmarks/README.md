@@ -173,7 +173,7 @@ If you use these benchmarks in research:
 ```
 @misc{resonance_benchmarks2025,
   title={Resonance Protocol Benchmarks: MQTT vs Semantic Event Computing},
-  author={rAI Research Collective},
+  author={Nikolay Yudin},
   year={2025},
   url={https://github.com/nick-yudin/resonance-protocol}
 }

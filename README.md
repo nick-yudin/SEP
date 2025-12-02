@@ -26,6 +26,21 @@ python quick_demo.py
 
 ---
 
+## The Problem
+
+**AI is becoming critical infrastructure. And it's controlled by 3 companies in 1 country.**
+
+- **NVIDIA** controls the hardware
+- **USA** controls NVIDIA (export restrictions on chips)
+- **OpenAI, Anthropic, Google** control the top models
+- **Everyone else** is just a customer — with a kill switch
+
+Training a GPT-4 class model costs ~$100M. 70% goes to GPU compute — thousands of H100s for months. The gap is growing exponentially.
+
+**We don't think "catching up" is the answer. We think the paradigm itself is wrong.**
+
+---
+
 ## What is Resonance?
 
 Resonance is an open standard for **meaning-triggered computing**.
@@ -181,11 +196,40 @@ python quick_demo.py
 
 ---
 
+## ⚠️ Honest Status
+
+### What Works Today
+
+| Component | Status | Evidence |
+|-----------|--------|----------|
+| Semantic filtering | ✅ Proven | 90%+ reduction in transmissions ([benchmark](./reference_impl/python/benchmarks/)) |
+| Procrustes alignment | ✅ Proven | Different models understand each other |
+| Event-driven architecture | ✅ Proven | Energy savings measured on edge devices |
+| Gossip mesh propagation | ✅ Proven | Standard protocol, battle-tested |
+
+### What We're Researching
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Distributed training on edge | 🔬 Research | DiLoCo, Hivemind show promise. Not production-ready. |
+| Ternary computing (10-100×) | ⏳ Waiting | BitNet works. Waiting for ternary hardware. |
+| Semantic efficiency for training | 💭 Speculation | Works for inference, not proven for training yet. |
+| Governance mechanisms | 📐 Design | "No one controls" needs real mechanism design. |
+
+**Our bet:** New hardware (memristors, neuromorphic chips, in-memory computing) will change the economics of AI. We're building the protocol ready for that hardware.
+
+---
+
 ## 🙏 Contributing
 
-This is an open protocol. Contributions welcome.
+This is a research project, not a startup. We're looking for people who see the problem and want to build the alternative.
 
-See [`PROJECT_STRUCTURE.md`](./PROJECT_STRUCTURE.md) for guidelines.
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for detailed guidelines.
+
+**Quick links:**
+- Run the [Quick Start](./reference_impl/python/README.md)
+- Read the [Technical Specification](./docs/01_specs/v1.0_current/spec_v1_final.md)
+- Join [GitHub Discussions](https://github.com/nick-yudin/resonance-protocol/discussions)
 
 **Governance:** All public artifacts maintained in English.
 
@@ -204,7 +248,7 @@ If you use Resonance Protocol in research, please cite:
 ```
 @misc{resonance2025,
   title={Resonance Protocol: A Semantic Event Standard for Distributed Edge Intelligence},
-  author={rAI Research Collective},
+  author={Nikolay Yudin},
   year={2025},
   url={https://resonanceprotocol.org}
 }
@@ -212,8 +256,8 @@ If you use Resonance Protocol in research, please cite:
 
 ---
 
-**Author:** rAI Research Collective  
-**Initiated:** 2025  
+**Author:** Nikolay Yudin
+**Initiated:** 2025
 **Status:** Level 1 Complete
 
 *"Silence is golden. Meaning is everything."*

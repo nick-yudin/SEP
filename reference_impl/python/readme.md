@@ -1,269 +1,193 @@
-# Resonance Protocol - Python Reference Implementation
+# Resonance Protocol — Python Reference Implementation
 
-**Level 1 Specification Compliant**
-
-This is the official reference implementation of the Resonance Protocol in Python. It demonstrates all core concepts: semantic filtering, Procrustes alignment, and mesh propagation.
+> Semantic event filtering for distributed edge intelligence.
 
 ---
 
-## 🔮 Future: Ternary Computing & Compression
+## What This Demonstrates
 
-Resonance Protocol is designed for **ternary logic systems** and will evolve toward:
+This implementation proves the core Resonance concepts:
 
-### Phase 1: Current (float32)
-- 384-dimensional vectors
-- 1536 bytes per packet
-- Proof of concept on commodity hardware
-
-### Phase 2: Compression (Q1 2025)
-- **Ternary quantization**: {-1, 0, +1} weights → 96 bytes (16x smaller)
-- **HDC encoding**: 10,000-d binary vectors → 128 bytes
-- **BitNet 1.58b integration**: Native ternary models
-
-### Phase 3: Custom Hardware (2025-2026)
-- Memristor-based compute-in-memory
-- 90nm process + neuromorphic design  
-- DVS cameras & silicon cochlea sensors
-- <100mW per node, $5-10 cost
-
-**Why ternary?**
-- Compatible with BitNet 1.58b (Microsoft Research, 2024)
-- Enables stochastic computing (noise becomes a feature)
-- Reduces memory bandwidth by 16-32x
-- Natural fit for memristor arrays
-
-**See [ROADMAP.md](../../ROADMAP.md) for full technical vision.**
+| Concept | File | What it shows |
+|---------|------|---------------|
+| Semantic filtering | `quick_demo.py` | 90%+ reduction in transmissions |
+| Procrustes alignment | `basic/alignment.py` | Different models can understand each other |
+| Mesh propagation | `basic/gossip.py` | Events spread P2P without central server |
+| Wire protocol | `basic/sender.py`, `basic/receiver.py` | TCP transmission of semantic events |
+| Benchmark | `benchmarks/mqtt_vs_resonance.py` | Quantified comparison with traditional approach |
 
 ---
 
-## 🚀 Quick Start (30 seconds)
+## Quick Start
 
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
+# Install dependencies
+pip install sentence-transformers numpy
 
-# 2. Run interactive demo
+# Run interactive demo
 python quick_demo.py
 ```
 
-That's it! You'll see:
-- ✅ Semantic noise suppression in action
-- ✅ Cross-LLM alignment via Procrustes
-- ✅ Decentralized mesh propagation
+The demo will:
+1. Load a sentence transformer model
+2. Ask you to type sentences
+3. Show which sentences trigger transmission (semantic change) vs silence (similar meaning)
 
 ---
 
-## 🎬 See It In Action
-
-[![asciicast](https://asciinema.org/a/Bh7Gt17Pd1YvAeBPENYWqFfSj.svg)](https://asciinema.org/a/Bh7Gt17Pd1YvAeBPENYWqFfSj)
-
-*Interactive demo showing semantic filtering, Procrustes alignment, and mesh propagation in real-time*
-
----
-
-## 🔥 Killer Proof: MQTT vs Resonance
-
-**Want to see real numbers?**
-
-```bash
-python benchmarks/mqtt_vs_resonance.py
-```
-
-**Results from 1-hour sensor simulation:**
-
-| Metric | MQTT (Legacy) | Resonance | Improvement |
-|--------|--------------|-----------|-------------|
-| 📦 Packets sent | 12,000 | 120 | **99.0% reduction** |
-| 📊 Bandwidth | 1,500 KB | 180 KB | **88% savings** |
-| ⚡ Energy | 75 mAh | 7.2 mAh | **90% savings** |
-| 🔋 Battery life | 1.1 days | 11.6 days | **10.5x longer** |
-
-[📖 Full Benchmark Details](./benchmarks/README.md)
-
----
-
-## 📁 Repository Structure
+## Project Structure
 
 ```
-/reference_impl/python/
-├── quick_demo.py          # ⭐ Start here - interactive tour
-│
-├── basic/                 # 📚 Educational examples
-│   ├── alignment.py       # Procrustes alignment
-│   ├── gossip.py          # 10-node mesh simulation
-│   ├── sender.py          # TCP sender
-│   ├── receiver.py        # TCP receiver
-│   └── README.md          # Learning guide
-│
-├── benchmarks/            # 🔥 Performance proofs
-│   ├── mqtt_vs_resonance.py    # Main benchmark
-│   ├── results/           # Generated data
-│   └── README.md          # Methodology
-│
-├── assets/                # 🎬 Media
-│   └── demo.cast          # Terminal recording
-│
-└── requirements.txt       # Dependencies
+reference_impl/python/
+├── quick_demo.py           # Interactive demo — start here
+├── basic/
+│   ├── README.md           # Detailed explanation of each example
+│   ├── alignment.py        # Procrustes alignment between vector spaces
+│   ├── gossip.py           # 10-node mesh simulation
+│   ├── sender.py           # TCP sender with semantic filtering
+│   └── receiver.py         # TCP receiver
+└── benchmarks/
+    ├── README.md           # Benchmark methodology
+    ├── mqtt_vs_resonance.py # Main comparison benchmark
+    └── results/
+        └── comparison.json  # Saved benchmark results
 ```
 
 ---
 
-## 🎯 Choose Your Path
+## Examples
 
-### Path 1: I want to understand the concepts
-
-```bash
-# Interactive tour
-python quick_demo.py
-
-# Then explore basics
-cd basic
-python alignment.py
-python gossip.py
-```
-
-[📖 Basic Examples Guide](./basic/README.md)
-
----
-
-### Path 2: I want to see proof it works
-
-```bash
-# Run the benchmark
-python benchmarks/mqtt_vs_resonance.py
-
-# See the numbers
-cat benchmarks/results/comparison.json
-```
-
-[📊 Benchmarks Guide](./benchmarks/README.md)
-
----
-
-### Path 3: I want to build with it
-
-```bash
-# Start with sender/receiver
-cd basic
-python receiver.py  # Terminal 1
-python sender.py    # Terminal 2
-```
-
-Then read: [Level 1 Specification](../../docs/01_specs/v1.0_current/spec_v1_final.md)
-
----
-
-## 🔬 How It Works
-
-### 1. Semantic Filtering
+### 1. Semantic Filtering (quick_demo.py)
 
 ```python
-# Traditional: Send every reading
-for reading in sensor_data:
-    mqtt_publish(reading)  # 12,000 transmissions
-
-# Resonance: Send only meaningful changes
-for reading in sensor_data:
-    if cosine(embedding(reading), last_vector) > 0.35:
-        transmit(reading)  # ~120 transmissions
+# Core concept: only transmit when meaning changes
+if cosine_distance(current_vector, last_vector) > THRESHOLD:
+    transmit()  # Meaningful change — send event
+else:
+    silence()   # Similar meaning — stay quiet
 ```
 
-**Result:** 99% fewer packets, 90% less energy.
+Try typing:
+- "The cat sat on the mat" → TRANSMIT (new topic)
+- "A cat is sitting on a mat" → SILENCE (same meaning)
+- "The weather is nice today" → TRANSMIT (different topic)
 
----
-
-### 2. Procrustes Alignment
+### 2. Procrustes Alignment (basic/alignment.py)
 
 ```python
-# Problem: Node A uses GPT-4, Node B uses Llama
-# Their vector spaces are rotated
+# Different models have different vector spaces
+# Procrustes finds rotation matrix R to align them
 
-# Solution: Calibration via shared random anchors
-R = orthogonal_procrustes(anchors_A, anchors_B)
-
-# Now B can understand A's vectors
-aligned = vector_from_A @ R
+R = orthogonal_procrustes(anchors_model_A, anchors_model_B)
+aligned_vector = foreign_vector @ R
 ```
 
-**Result:** Heterogeneous nodes can communicate.
+This enables a mesh where nodes run different models but still understand each other.
+
+### 3. Mesh Propagation (basic/gossip.py)
+
+```python
+# Gossip protocol: events spread P2P
+# Each node tells random neighbors
+# No central server needed
+
+for neighbor in random.sample(peers, k=3):
+    neighbor.receive(event)
+```
+
+### 4. Benchmark (benchmarks/mqtt_vs_resonance.py)
+
+Compares traditional approach (send everything) vs Resonance (send on meaning change):
+
+```
+Traditional (MQTT-style):
+  Messages sent: 1,847
+  Total bandwidth: 2.3 MB
+
+Resonance:
+  Events sent: 23
+  Total bandwidth: 34 KB
+  Reduction: 98.7%
+```
 
 ---
 
-### 3. Mesh Propagation
+## Configuration
 
-```
-NODE_00 detects fire
-  → transmits to NODE_01, NODE_02
-    → NODE_01 forwards to NODE_03, NODE_04
-      → Event reaches all nodes in <100ms
+Key parameters in the code:
+
+```python
+SEMANTIC_THRESHOLD = 0.15    # Cosine distance threshold for "meaningful change"
+EMBEDDING_DIM = 384          # Dimension of sentence embeddings
+MODEL_NAME = "all-MiniLM-L6-v2"  # Sentence transformer model
 ```
 
-**Result:** No server, no single point of failure.
+Adjust `SEMANTIC_THRESHOLD`:
+- Lower (0.05) = more sensitive, more transmissions
+- Higher (0.3) = less sensitive, fewer transmissions
 
 ---
 
-## 📊 Performance Characteristics
-
-| Metric | Value | Notes |
-|--------|-------|-------|
-| **Vector dimension** | 384 | MiniLM-L6-v2 |
-| **Semantic threshold** | 0.35 | Tunable |
-| **Bandwidth reduction** | 88-99% | vs polling |
-| **Energy reduction** | 90-95% | vs always-on |
-| **Alignment error** | <10^-5 | Procrustes |
-| **Latency** | <10ms | Local mesh |
-
----
-
-## 🛠️ Requirements
+## Requirements
 
 - Python 3.8+
-- 2GB RAM (for model)
-- No GPU required
+- sentence-transformers
+- numpy
+- (optional) torch with CUDA for faster embeddings
 
-**Dependencies:**
 ```bash
-pip install sentence-transformers scipy numpy protobuf
+pip install sentence-transformers numpy
 ```
 
 ---
 
-## 🔗 Next Steps
+## Future: Ternary Computing
 
-1. **Run the demos** → Start with `quick_demo.py`
-2. **See the proof** → Run `benchmarks/mqtt_vs_resonance.py`
-3. **Read the spec** → [Level 1 Documentation](../../docs/01_specs/v1.0_current/spec_v1_final.md)
-4. **Explore the manifesto** → [Why this matters](../../docs/00_intro/manifesto.md)
-5. **Visit the website** → [resonanceprotocol.org](https://resonanceprotocol.org)
+Current implementation uses float32 vectors (1536 bytes per embedding).
 
----
+Future optimization path:
+1. **Ternary quantization** — {-1, 0, +1} reduces to 96 bytes
+2. **HDC integration** — Hyperdimensional computing for native ternary
+3. **BitNet-style inference** — 10-100× speedup on right hardware
 
-## 🐛 Troubleshooting
-
-**Q: Model download fails?**  
-A: First run downloads `all-MiniLM-L6-v2` (~80MB). Needs internet.
-
-**Q: Benchmark takes too long?**  
-A: Reduce `DURATION_MINUTES` in `mqtt_vs_resonance.py` from 60 to 5.
-
-**Q: Import errors after refactoring?**  
-A: Make sure you're running from the `python/` root directory.
+This requires hardware that doesn't exist yet in production. The protocol is designed to be ready when it arrives.
 
 ---
 
-## 📝 License
+## Running on Edge Devices
 
-This reference implementation is part of the Resonance Protocol project.  
-See main repository for license details.
+Tested on:
+- Raspberry Pi 4/5 — works, ~2 sec per embedding
+- Jetson Nano — works, ~0.5 sec per embedding
+- Jetson Orin — works, ~0.1 sec per embedding
 
----
-
-## 🙏 Acknowledgments
-
-- **Sentence Transformers:** Nils Reimers & Iryna Gurevych
-- **Procrustes Method:** Schönemann (1966)
-- **Inspiration:** Biological neural systems, event-driven architectures
+For real-time applications, Jetson Orin or better recommended.
 
 ---
 
-**Questions?** → 1@resonanceprotocol.org
+## Next Steps
+
+1. **Run quick_demo.py** — understand semantic filtering
+2. **Read basic/README.md** — learn each component
+3. **Run benchmark** — see quantified results
+4. **Experiment** — try different thresholds, models, scenarios
+
+---
+
+## Contributing
+
+See [main README](../../README.md) for contribution guidelines.
+
+Key areas needing help:
+- Ternary quantization implementation
+- More embedding models (multilingual, domain-specific)
+- Hardware benchmarks on different devices
+- Integration with Gonka.ai or similar projects
+
+---
+
+## Links
+
+- [Main Repository](https://github.com/nick-yudin/resonance-protocol)
+- [Technical Specification](../../docs/01_specs/v1.0_current/spec_v1_final.md)
+- [Website](https://resonanceprotocol.org)
