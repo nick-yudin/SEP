@@ -11,8 +11,6 @@ Reference: Kanerva, P. (2009). "Hyperdimensional Computing"
 """
 
 import torch
-import torchhd
-from torchhd import embeddings
 from typing import List, Dict
 import hashlib
 
@@ -44,7 +42,8 @@ class HDCTextEncoder:
         Each position is represented by a permutation of a base vector.
         """
         # Base random binary vector
-        base = torchhd.random(1, self.dimensions, device=self.device)
+        torch.manual_seed(42)  # Fixed seed for reproducibility
+        base = torch.randint(0, 2, (1, self.dimensions), device=self.device, dtype=torch.bool)
 
         # Generate permutations for each position
         positions = []
@@ -63,8 +62,8 @@ class HDCTextEncoder:
             # Use token hash as seed for deterministic random vectors
             seed = int(hashlib.md5(token.encode()).hexdigest()[:8], 16)
             torch.manual_seed(seed)
-            self.token_vectors[token] = torchhd.random(
-                1, self.dimensions, device=self.device
+            self.token_vectors[token] = torch.randint(
+                0, 2, (1, self.dimensions), device=self.device, dtype=torch.bool
             )
 
         return self.token_vectors[token]

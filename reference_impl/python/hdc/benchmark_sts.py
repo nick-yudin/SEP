@@ -16,7 +16,7 @@ import numpy as np
 from scipy.stats import spearmanr
 from sentence_transformers import SentenceTransformer
 from datasets import load_dataset
-from text_encoder import HDCTextEncoder
+from hdc.text_encoder import HDCTextEncoder
 from typing import List, Tuple
 import time
 import json

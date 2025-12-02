@@ -1,0 +1,26 @@
+{
+  "benchmark": "STS Benchmark",
+  "date": "2025-12-02 17:38:17",
+  "hdc": {
+    "method": "HDC (Binary Spatter Codes)",
+    "dimensions": 10000,
+    "spearman_correlation": 0.3811050837293257,
+    "p_value": 6.665933899291799e-49,
+    "encoding_time_seconds": 4.924350023269653,
+    "pairs_per_second": 280.0369578692898
+  },
+  "baseline": {
+    "method": "Sentence-Transformers (all-MiniLM-L6-v2)",
+    "dimensions": 384,
+    "spearman_correlation": 0.8203246160625794,
+    "p_value": 0.0,
+    "encoding_time_seconds": 15.513542890548706,
+    "pairs_per_second": 88.89007557649042
+  },
+  "comparison": {
+    "status": "\u274c FAILURE",
+    "gap_percent": 53.54216169221324,
+    "speed_ratio": 3.15037371779841,
+    "dimension_ratio": 26.041666666666668
+  }
+}
