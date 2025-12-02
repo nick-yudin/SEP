@@ -11,3 +11,7 @@ protobuf>=4.21.0
 
 # Optional: For advanced demos
 # torch>=2.0.0  # Already included with sentence-transformers
+
+# HDC (Hyperdimensional Computing) research
+torchhd>=0.2.0
+datasets>=2.14.0  # For STS benchmark dataset
