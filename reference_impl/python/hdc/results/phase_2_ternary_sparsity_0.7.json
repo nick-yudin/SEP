@@ -1,0 +1,34 @@
+{
+  "phase": "2",
+  "date": "2025-12-02 18:20:29",
+  "approach": "Ternary Quantization HDC",
+  "sparsity": 0.7,
+  "baseline": {
+    "method": "SentenceTransformers (Baseline)",
+    "dimensions": 384,
+    "spearman_correlation": 0.8203246160625794,
+    "p_value": 0.0,
+    "encoding_time_seconds": 18.9586238861084,
+    "pairs_per_second": 72.73734677601986,
+    "vector_size_bytes": 1536
+  },
+  "ternary_hdc": {
+    "method": "Ternary HDC (Phase 2, sparsity=0.7)",
+    "hd_dimensions": 10000,
+    "sparsity": 0.7,
+    "spearman_correlation": 0.8208857423200829,
+    "p_value": 0.0,
+    "encoding_time_seconds": 77.02068519592285,
+    "pairs_per_second": 17.904281122560025,
+    "semantic_seed": "SentenceTransformer (all-MiniLM-L6-v2)",
+    "vector_size_bytes": 2500,
+    "compression_ratio": 16.0
+  },
+  "comparison": {
+    "status": "\u2705 SUCCESS",
+    "gap_percent": -0.06840295250394872,
+    "compression_ratio": 16.0,
+    "size_reduction_percent": -62.76041666666667,
+    "speed_ratio": 0.24614976921955492
+  }
+}
