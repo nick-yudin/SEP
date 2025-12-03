@@ -22,3 +22,15 @@ yarn-error.log
 # Crucially, the built static files must not be tracked.
 website/build/
 .vscode/
+
+# --------------------
+# M3 EXPERIMENTAL FILES
+# --------------------
+# M3 notebooks with Firebase credentials (contain private keys)
+M3*_Node_*.ipynb
+m3*_node_*.json
+m3*_node_*.png
+
+# Firebase credentials
+*firebase*.json
+*credentials*.json
