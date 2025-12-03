@@ -60,7 +60,7 @@ sequenceDiagram
 
 ### Visualization
 
-![M3a Distributed Training](../../../website/static/research/phase_m3a_distributed_training.png)
+*(Visualization available in full research results)*
 
 ### Interpretation
 
@@ -128,7 +128,7 @@ graph LR
 
 ### Visualization
 
-![M3b HDC Compression](../../../website/static/research/phase_m3b_hdc_compression.png)
+![M3b HDC Compression](/research/m3b_compression.png)
 
 ### Interpretation
 
@@ -222,7 +222,7 @@ sequenceDiagram
 
 ### Visualization
 
-![M3c' Cross-Architecture Transfer](../../../website/static/research/phase_m3c_cross_architecture.png)
+![M3c' Cross-Architecture Transfer](/research/m3c_transfer.png)
 
 ### Why This Is a Breakthrough
 
@@ -334,7 +334,7 @@ print(f"Transfer Efficiency: {student_accuracy / teacher_accuracy:.1%}")
 
 **Lesson #28:** HDC compression reduces distributed training synchronization from 17.5 MB to 271 KB (32× compression).
 
-**Lesson #29:** HDC-compressed distributed training converges with minimal accuracy loss (<1%).
+**Lesson #29:** HDC-compressed distributed training converges with minimal accuracy loss (&lt;1%).
 
 **Lesson #30:** HDC enables 93% efficient knowledge transfer between completely different model architectures (DistilBERT ↔ GPT-2).
 
