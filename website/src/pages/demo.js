@@ -32,12 +32,16 @@ export default function Demo() {
     }
   }, [activeDemo]);
 
-  // Simulate transfer demo
+  // Simulate transfer demo - animate once to 93%
   useEffect(() => {
     if (activeDemo === 'transfer') {
+      setTransferProgress(0);
       const interval = setInterval(() => {
         setTransferProgress((prev) => {
-          if (prev >= 93) return 0;
+          if (prev >= 93) {
+            clearInterval(interval);
+            return 93;
+          }
           return prev + 1;
         });
       }, 30);
@@ -45,16 +49,10 @@ export default function Demo() {
     }
   }, [activeDemo]);
 
-  // Simulate generalization demo
+  // Generalization demo - show 100% immediately
   useEffect(() => {
     if (activeDemo === 'generalization') {
-      const interval = setInterval(() => {
-        setGeneralizationProgress((prev) => {
-          if (prev >= 100) return 0;
-          return prev + 5;
-        });
-      }, 100);
-      return () => clearInterval(interval);
+      setGeneralizationProgress(100);
     }
   }, [activeDemo]);
 
@@ -440,8 +438,8 @@ export default function Demo() {
 
                 {/* Training vs Test */}
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6">
-                    <div className="text-sm font-mono text-green-400 mb-4">✓ TRAINED ON</div>
+                  <div className="bg-gray-500/10 border border-gray-500/30 rounded-xl p-6">
+                    <div className="text-sm font-mono text-gray-400 mb-4">TRANSFORMER BASELINE (Trained)</div>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">🔴🔵</span>
@@ -452,14 +450,14 @@ export default function Demo() {
                         <span>blue square</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl">🟢🔺</span>
-                        <span>green triangle</span>
+                        <span className="text-2xl">🟡🔺</span>
+                        <span>yellow triangle</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-[#ff4d00]/10 border border-[#ff4d00]/30 rounded-xl p-6">
-                    <div className="text-sm font-mono text-[#ff4d00] mb-4">✨ ZERO-SHOT (100% Accuracy)</div>
+                    <div className="text-sm font-mono text-[#ff4d00] mb-4">✨ HDC ZERO-SHOT (100% Accuracy)</div>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">🟥</span>
@@ -470,8 +468,8 @@ export default function Demo() {
                         <span>blue triangle ✓</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl">🟢🔵</span>
-                        <span>green circle ✓</span>
+                        <span className="text-2xl">🟡🔵</span>
+                        <span>yellow circle ✓</span>
                       </div>
                     </div>
                   </div>
