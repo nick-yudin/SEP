@@ -200,7 +200,7 @@ export default function Home() {
             <a href="#problem" className="hover:text-signal transition-colors">Problem</a>
             <a href="#results" className="hover:text-signal transition-colors">Results</a>
             <a href="#status" className="hover:text-signal transition-colors">Status</a>
-            <a href="#demo" className="hover:text-signal transition-colors">Demo</a>
+            <a href="/demo" className="hover:text-signal transition-colors">Demo</a>
             <a href="#join" className="hover:text-signal transition-colors">Join</a>
             <a href="https://github.com/nick-yudin/resonance-protocol" target="_blank" className="text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all">
               GitHub
@@ -838,7 +838,7 @@ export default function Home() {
               <div>
                 <div className="text-3xl font-bold text-signal mb-3">2</div>
                 <p className="text-sm text-gray-300">
-                  <a href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python" className="text-white hover:text-signal transition-colors font-bold">Run the demo</a>
+                  <a href="/demo" className="text-white hover:text-signal transition-colors font-bold">Try interactive demo</a>
                 </p>
               </div>
               <div>
