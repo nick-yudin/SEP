@@ -29,8 +29,8 @@ HDC should achieve **100% accuracy** on test examples combining A+B.
 ### Task: Attribute Classification
 
 **Scenario:** Classify descriptions with two independent attributes:
-- **Color:** {red, blue, green}
-- **Shape:** {circle, square, triangle}
+- **Color:** \{red, blue, green\}
+- **Shape:** \{circle, square, triangle\}
 
 ### Training Strategy
 
@@ -59,12 +59,12 @@ combined_vector = bind(color_vector, shape_vector)
 
 | Test Combination | Seen During Training? | HDC Prediction | Accuracy |
 |-----------------|----------------------|----------------|----------|
-| red square | ❌ No | red square | ✅ Correct |
-| blue triangle | ❌ No | blue triangle | ✅ Correct |
-| green circle | ❌ No | green circle | ✅ Correct |
-| red triangle | ❌ No | red triangle | ✅ Correct |
-| blue circle | ❌ No | blue circle | ✅ Correct |
-| green square | ❌ No | green square | ✅ Correct |
+| "red square" | ❌ No | "red square" | ✅ Correct |
+| "blue triangle" | ❌ No | "blue triangle" | ✅ Correct |
+| "green circle" | ❌ No | "green circle" | ✅ Correct |
+| "red triangle" | ❌ No | "red triangle" | ✅ Correct |
+| "blue circle" | ❌ No | "blue circle" | ✅ Correct |
+| "green square" | ❌ No | "green square" | ✅ Correct |
 
 **Result:** **100% accuracy on all unseen combinations**
 
@@ -76,27 +76,27 @@ combined_vector = bind(color_vector, shape_vector)
 
 ```mermaid
 graph TD
-    A[Color: red<br/>10,000-d ternary] -->|Bind ⊗| C[Combined<br/>red square]
-    B[Shape: square<br/>10,000-d ternary] -->|Bind ⊗| C
+    A["Color: red<br/>10,000-d ternary"] -->|Bind ⊗| C["Combined<br/>red square"]
+    B["Shape: square<br/>10,000-d ternary"] -->|Bind ⊗| C
 
-    C -->|Unbind /| D[Recovered: red]
-    C -->|Unbind /| E[Recovered: square]
+    C -->|Unbind /| D["Recovered: red"]
+    C -->|Unbind /| E["Recovered: square"]
 
     style C fill:#ff4d00,stroke:#ff4d00,color:#000
 ```
 
 **Key Property:** Binding is reversible:
-- `bind(red, square) ⊗ red ≈ square`
-- `bind(red, square) ⊗ square ≈ red`
+- `bind(red_vec, square_vec) / red_vec ≈ square_vec`
+- `bind(red_vec, square_vec) / square_vec ≈ red_vec`
 
 ### Training vs Test Space
 
 ```mermaid
 graph LR
-    Train[Training Set<br/>red circle<br/>blue square<br/>green triangle]
-    Test[Test Set<br/>red square ❌<br/>blue triangle ❌<br/>green circle ❌]
+    Train["Training Set<br/>red circle<br/>blue square<br/>green triangle"]
+    Test["Test Set<br/>red square ❌<br/>blue triangle ❌<br/>green circle ❌"]
 
-    Train -->|HDC Composition| Algebra[Algebraic<br/>Semantic Space]
+    Train -->|HDC Composition| Algebra["Algebraic<br/>Semantic Space"]
     Algebra -->|Generalization| Test
 
     style Algebra fill:#ff4d00,stroke:#ff4d00,color:#000
