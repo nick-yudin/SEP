@@ -7,6 +7,7 @@ export default function Demo() {
   const [compressionProgress, setCompressionProgress] = useState(0);
   const [transferProgress, setTransferProgress] = useState(0);
   const [generalizationProgress, setGeneralizationProgress] = useState(0);
+  const [tailwindLoaded, setTailwindLoaded] = useState(false);
 
   // Setup Tailwind CSS with faster loading
   useEffect(() => {
@@ -15,7 +16,13 @@ export default function Demo() {
       script.id = 'tailwind-script';
       script.src = "https://cdn.tailwindcss.com";
       script.async = false; // Load synchronously for faster processing
+      script.onload = () => {
+        // Force a re-render after Tailwind loads
+        setTimeout(() => setTailwindLoaded(true), 100);
+      };
       document.head.appendChild(script);
+    } else {
+      setTailwindLoaded(true);
     }
   }, []);
 
