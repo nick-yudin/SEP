@@ -90,37 +90,57 @@ export default function Demo() {
         {/* Demo Selector */}
         <section className="py-12 px-6 border-b border-white/5 sticky top-0 bg-[#0a0a0a]/95 backdrop-blur-md z-40">
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                onClick={() => setActiveDemo('compression')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                  activeDemo === 'compression'
-                    ? 'bg-[#ff4d00] text-black'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                }`}
-              >
-                32× Compression
-              </button>
-              <button
-                onClick={() => setActiveDemo('transfer')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                  activeDemo === 'transfer'
-                    ? 'bg-[#ff4d00] text-black'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                }`}
-              >
-                93% Cross-Architecture Transfer
-              </button>
-              <button
-                onClick={() => setActiveDemo('generalization')}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                  activeDemo === 'generalization'
-                    ? 'bg-[#ff4d00] text-black'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                }`}
-              >
-                100% Compositional Generalization
-              </button>
+            <div className="flex flex-wrap items-center gap-2 justify-center">
+              {/* Demo 1 */}
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Demo 1</span>
+                <button
+                  onClick={() => setActiveDemo('compression')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                    activeDemo === 'compression'
+                      ? 'bg-[#ff4d00] text-black'
+                      : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                  }`}
+                >
+                  32× Compression
+                </button>
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:block text-gray-600 text-2xl px-2 mt-6">→</div>
+
+              {/* Demo 2 */}
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Demo 2</span>
+                <button
+                  onClick={() => setActiveDemo('transfer')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                    activeDemo === 'transfer'
+                      ? 'bg-[#ff4d00] text-black'
+                      : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                  }`}
+                >
+                  93% Cross-Architecture Transfer
+                </button>
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:block text-gray-600 text-2xl px-2 mt-6">→</div>
+
+              {/* Demo 3 */}
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs font-mono text-gray-500 uppercase">Demo 3</span>
+                <button
+                  onClick={() => setActiveDemo('generalization')}
+                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                    activeDemo === 'generalization'
+                      ? 'bg-[#ff4d00] text-black'
+                      : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                  }`}
+                >
+                  100% Compositional Generalization
+                </button>
+              </div>
             </div>
           </div>
         </section>
