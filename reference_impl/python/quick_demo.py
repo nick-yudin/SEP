@@ -231,14 +231,14 @@ def main():
     ✅ Cross-LLM alignment via Procrustes (10^-7 error)
     ✅ Decentralized mesh propagation (no server)
     
-    This is Resonance Protocol Level 1.
+    This is SEP Protocol Level 1.
     
     Next steps:
     - Explore individual demos: alignment.py, gossip.py, sender.py
     - Read the specification: /docs/01_specs/v1.0_current/spec_v1_final.md
-    - Check the website: https://resonanceprotocol.org
+    - Check the website: https://seprotocol.ai
     
-    Questions? → 1@resonanceprotocol.org
+    Questions? → 1@seprotocol.ai
         """)
         
     except KeyboardInterrupt:

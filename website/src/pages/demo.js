@@ -66,7 +66,7 @@ export default function Demo() {
   return (
     <Layout
       title="Interactive Demo"
-      description="Try Resonance Protocol's HDC technology live in your browser"
+      description="Try Semantic Event Protocol's HDC technology live in your browser"
     >
       <Head>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -85,11 +85,11 @@ export default function Demo() {
               Interactive Demo
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              See HDC in Action
+              See SEP in Action
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Explore the breakthrough technology behind Resonance Protocol.
-              All demos run live in your browser—no installation required.
+              Explore the technology behind Semantic Event Protocol through visual demonstrations.
+              All reference code is available to check and run yourself.
             </p>
           </div>
         </section>
@@ -279,8 +279,8 @@ export default function Demo() {
                 <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-6 font-mono text-sm">
                   <div className="text-[#ff4d00] mb-4"># Try it yourself:</div>
                   <div className="space-y-2 text-gray-300">
-                    <div><span className="text-gray-500">$</span> git clone https://github.com/nick-yudin/resonance-protocol</div>
-                    <div><span className="text-gray-500">$</span> cd resonance-protocol/reference_impl/python</div>
+                    <div><span className="text-gray-500">$</span> git clone https://github.com/nick-yudin/SEP</div>
+                    <div><span className="text-gray-500">$</span> cd SEP/reference_impl/python</div>
                     <div><span className="text-gray-500">$</span> pip install -r requirements.txt</div>
                     <div><span className="text-gray-500">$</span> python3 -m hdc.distributed_trainer_hdc</div>
                     <div className="text-[#ff4d00] mt-4">✓ Compression: 17.5 MB → 271 KB (32×)</div>
@@ -551,7 +551,7 @@ export default function Demo() {
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <a
-                href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python/hdc"
+                href="https://github.com/nick-yudin/SEP/tree/main/reference_impl/python/hdc"
                 target="_blank"
                 className="px-8 py-4 bg-[#ff4d00] text-black font-bold rounded hover:bg-[#ff6d20] transition-all"
               >

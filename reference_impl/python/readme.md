@@ -1,4 +1,4 @@
-# Resonance Protocol — Python Reference Implementation
+# SEP — Python Reference Implementation
 
 > Semantic event filtering for distributed edge intelligence.
 
@@ -6,15 +6,15 @@
 
 ## What This Demonstrates
 
-This implementation proves the core Resonance concepts:
+This implementation demonstrates the core SEP concepts in controlled environments:
 
 | Concept | File | What it shows |
 |---------|------|---------------|
-| Semantic filtering | `quick_demo.py` | 90%+ reduction in transmissions |
-| Procrustes alignment | `basic/alignment.py` | Different models can understand each other |
-| Mesh propagation | `basic/gossip.py` | Events spread P2P without central server |
-| Wire protocol | `basic/sender.py`, `basic/receiver.py` | TCP transmission of semantic events |
-| Benchmark | `benchmarks/mqtt_vs_resonance.py` | Quantified comparison with traditional approach |
+| Semantic filtering | `quick_demo.py` | 90%+ reduction in synthetic test scenarios |
+| Procrustes alignment | `basic/alignment.py` | Cross-model vector space alignment (toy example) |
+| Mesh propagation | `basic/gossip.py` | Simulated P2P event propagation (10 nodes) |
+| Wire protocol | `basic/sender.py`, `basic/receiver.py` | Basic TCP transmission of semantic events |
+| Benchmark | `benchmarks/mqtt_vs_resonance.py` | Comparison with traditional approach (synthetic data) |
 
 ---
 
@@ -82,7 +82,7 @@ R = orthogonal_procrustes(anchors_model_A, anchors_model_B)
 aligned_vector = foreign_vector @ R
 ```
 
-This enables a mesh where nodes run different models but still understand each other.
+This suggests potential for heterogeneous meshes. Real-world validation needed.
 
 ### 3. Mesh Propagation (basic/gossip.py)
 
@@ -97,14 +97,14 @@ for neighbor in random.sample(peers, k=3):
 
 ### 4. Benchmark (benchmarks/mqtt_vs_resonance.py)
 
-Compares traditional approach (send everything) vs Resonance (send on meaning change):
+Compares traditional approach (send everything) vs SEP (send on meaning change):
 
 ```
 Traditional (MQTT-style):
   Messages sent: 1,847
   Total bandwidth: 2.3 MB
 
-Resonance:
+SEP:
   Events sent: 23
   Total bandwidth: 34 KB
   Reduction: 98.7%
@@ -156,12 +156,12 @@ This requires hardware that doesn't exist yet in production. The protocol is des
 
 ## Running on Edge Devices
 
-Tested on:
-- Raspberry Pi 4/5 — works, ~2 sec per embedding
-- Jetson Nano — works, ~0.5 sec per embedding
-- Jetson Orin — works, ~0.1 sec per embedding
+Tested informally on:
+- Raspberry Pi 4/5 — runs, ~2 sec per embedding
+- Jetson Nano — runs, ~0.5 sec per embedding
+- Jetson Orin — runs, ~0.1 sec per embedding
 
-For real-time applications, Jetson Orin or better recommended.
+Note: These are preliminary tests, not production benchmarks.
 
 ---
 
@@ -188,6 +188,6 @@ Key areas needing help:
 
 ## Links
 
-- [Main Repository](https://github.com/nick-yudin/resonance-protocol)
+- [Main Repository](https://github.com/nick-yudin/SEP)
 - [Technical Specification](../../docs/01_specs/v1.0_current/spec_v1_final.md)
-- [Website](https://resonanceprotocol.org)
+- [Website](https://seprotocol.ai)

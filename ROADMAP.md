@@ -1,6 +1,6 @@
-# Resonance Protocol - Technical Roadmap
+# Semantic Event Protocol (SEP) - Technical Roadmap
 
-**Mission:** Demonstrate that meaning-triggered, distributed AI is not just theoretically superior—it's buildable today.
+**Mission:** Explore whether meaning-triggered, distributed AI can be built with current technology through systematic experimentation.
 
 **Philosophy:** The road will be made by walking. This document describes direction, not destiny.
 
@@ -8,7 +8,7 @@
 
 ## Strategic Context
 
-Resonance Protocol is the communication layer for a rethinking of AI infrastructure:
+SEP is the communication layer for a rethinking of AI infrastructure:
 
 ```
 Sensors:     DVS cameras, silicon cochlea     (event-driven)
@@ -16,11 +16,11 @@ Logic:       Ternary {-1, 0, +1}              (BitNet-compatible)
 Memory:      Memristors                       (compute-in-memory)
 Models:      BitNet 1.58b                     (1.58 bits/weight)
 Vectors:     HDC, ternary quantization        (<100 bytes)
-Protocol:    Resonance                        ← We start here
+Protocol:    SEP                              ← We start here
 Network:     Fully distributed mesh
 ```
 
-**Why bottom-up?** You can't sell a chip without proving the protocol works. You can't get funding without a demo. The demo comes first.
+**Why bottom-up?** Hardware development requires demonstrating the protocol concept first. Small-scale validation enables larger experiments.
 
 ---
 
@@ -204,10 +204,10 @@ This is intentionally vague. The roadmap will rewrite itself based on:
 
 ## Immediate Next Steps (This Week)
 
-1. ✅ Finalize protocol benchmarks with honest disclaimers
+1. ✅ Update protocol documentation with limitations and caveats
 2. ⬜ Order Phase 1 hardware (~$675)
 3. ⬜ Set up GitHub project board for hardware tasks
-4. ⬜ Write "Why Resonance" blog post
+4. ⬜ Write "Why SEP" blog post
 5. ⬜ Reach out to first 5 potential collaborators
 
 ---
@@ -260,8 +260,8 @@ This roadmap will be wrong. That's fine.
 
 The goal isn't to predict the future—it's to build enough of it that the path forward becomes obvious.
 
-**Status:** Protocol proven. Hardware phase starting.  
-**Next milestone:** Working 5-device mesh (Q1 2025)
+**Status:** Protocol concepts demonstrated in software. Hardware validation phase starting.
+**Next milestone:** Working 5-device mesh (Q1 2026)
 
 *"The best time to plant a tree was 20 years ago. The second best time is now."*
 
@@ -269,4 +269,4 @@ The goal isn't to predict the future—it's to build enough of it that the path 
 
 **Last Updated:** December 2025  
 **Next milestone:** Working 5-device mesh (Q1 2026)  
-**Contact:** 1@resonanceprotocol.org
+**Contact:** 1@seprotocol.ai

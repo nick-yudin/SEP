@@ -1,25 +1,29 @@
-# RESONANCE PROTOCOL
+# SEMANTIC EVENT PROTOCOL (SEP)
 
-**A semantic event protocol for distributed edge intelligence. Triggered by meaning, not time.**
+**Event-driven distributed intelligence. Triggered by meaning, not time.**
 
-[![Last Commit](https://img.shields.io/github/last-commit/nick-yudin/resonance-protocol)](https://github.com/nick-yudin/resonance-protocol)
-[![Status](https://img.shields.io/badge/Status-Level%201%20Complete-brightgreen)](https://resonanceprotocol.org)
+> **Website:** [seprotocol.ai](https://seprotocol.ai)
+> **Author:** Nikolay Yudin ([@Nikolay_Yudin_](https://twitter.com/Nikolay_Yudin_))
+> **Contact:** [1@seprotocol.ai](mailto:1@seprotocol.ai)
+
+[![Last Commit](https://img.shields.io/github/last-commit/nick-yudin/SEP)](https://github.com/nick-yudin/SEP)
+[![Status](https://img.shields.io/badge/Status-Level%201%20Complete-brightgreen)](https://seprotocol.ai)
 [![License](https://img.shields.io/badge/License-Open-blue)](LICENSE)
 
 ---
 
 ## 🚀 Quick Start
 
-**Three ways to explore Resonance Protocol:**
+**Three ways to explore SEP:**
 
 ### 1️⃣ Read the Specification
-Understand the technical foundation: [**Level 1 Specification**](https://resonanceprotocol.org/docs/specs/v1.0_current/spec-v1-final)
+Understand the technical foundation: [**Level 1 Specification**](https://seprotocol.ai/docs/specs/v1.0_current/spec-v1-final)
 
 ### 2️⃣ Try Interactive Demos
-See HDC research results live in your browser: [**Interactive Demo**](https://resonanceprotocol.org/demo)
+See HDC research results: [**Interactive Demo**](https://seprotocol.ai/demo)
 
 ### 3️⃣ Explore Research
-Review experimental validation (32× compression, 93% cross-architecture transfer, 100% compositional generalization): [**Research Overview**](https://resonanceprotocol.org/docs/research)
+Review experimental results from small-scale controlled tests (32× compression, 93% cross-architecture transfer, 100% compositional generalization): [**Research Overview**](https://seprotocol.ai/docs/research)
 
 ---
 
@@ -38,19 +42,19 @@ Training a GPT-4 class model costs ~$100M. 70% goes to GPU compute — thousands
 
 ---
 
-## What is Resonance?
+## What is the Semantic Event Protocol (SEP)?
 
-Resonance is an open standard for **meaning-triggered computing**.
+The Semantic Event Protocol is an open standard for **meaning-triggered computing**.
 
 In traditional IoT and AI systems, devices stream data continuously (clock-driven) or poll sensors at fixed intervals. This creates massive noise, latency, and energy waste.
 
-**Resonance flips the axiom:**
+**SEP flips the axiom:**
 
 - **Silence is the default state.** A node transmits nothing until "meaning" changes.
 - **Meaning is mathematical.** We use high-dimensional vectors (embeddings) to track state.
 - **Events are semantic.** We transmit the change in meaning ($\Delta\mu$), not raw data.
 
-> *"The clock stops. The resonance begins."*
+> *"Compute only when it matters."*
 
 ---
 
@@ -63,7 +67,7 @@ Traditional system:
 Every 100ms: Send sensor data → 36,000 packets/hour
 ```
 
-Resonance system:
+SEP system:
 ```
 Only when meaning changes → 47 packets/hour (99.9% reduction)
 ```
@@ -120,7 +124,7 @@ NODE_00 detects event → transmits to neighbors
 
 ## 📊 Why This Matters
 
-| Traditional (Clock-Based) | Resonance (Meaning-Based) |
+| Traditional (Clock-Based) | SEP (Meaning-Based) |
 |---------------------------|---------------------------|
 | Poll every 100ms | Transmit only on change |
 | 100% duty cycle | 0.1% duty cycle |
@@ -133,7 +137,7 @@ NODE_00 detects event → transmits to neighbors
 ## 📁 Repository Structure
 
 ```
-resonance-protocol/
+SEP/
 ├── docs/                      # The Single Source of Truth
 │   ├── 00_intro/
 │   │   └── manifesto.md       # The philosophical foundation (Level 0)
@@ -149,7 +153,7 @@ resonance-protocol/
 │       ├── sender.py          # TCP wire protocol
 │       └── receiver.py        # Protobuf deserialization
 │
-└── website/                   # resonanceprotocol.org source
+└── website/                   # seprotocol.ai source
 ```
 
 ---
@@ -165,8 +169,8 @@ pip install -r requirements.txt
 python quick_demo.py
 ```
 
-**Status:** ✅ Production-ready  
-**Tested:** November 2025 — 10 nodes, 3 LLMs, zero latency
+**Status:** ⚠️ Alpha reference implementation
+**Tested:** December 2025 — 10-node simulated mesh with 3 embedding backends
 
 [📖 Full Implementation Docs](./reference_impl/python/README.md)
 
@@ -187,9 +191,9 @@ python quick_demo.py
 
 ## 🌐 Links
 
-- **Website:** [https://resonanceprotocol.org](https://resonanceprotocol.org)
-- **Twitter/X:** [@rAI_stack](https://twitter.com/rAI_stack)
-- **Contact:** [1@resonanceprotocol.org](mailto:1@resonanceprotocol.org)
+- **Website:** [https://seprotocol.ai](https://seprotocol.ai)
+- **Twitter/X:** [@Nikolay_Yudin_](https://twitter.com/Nikolay_Yudin_)
+- **Contact:** [1@seprotocol.ai](mailto:1@seprotocol.ai)
 
 ---
 
@@ -199,10 +203,10 @@ python quick_demo.py
 
 | Component | Status | Evidence |
 |-----------|--------|----------|
-| Semantic filtering | ✅ Proven | 90%+ reduction in transmissions ([benchmark](./reference_impl/python/benchmarks/)) |
-| Procrustes alignment | ✅ Proven | Different models understand each other |
-| Event-driven architecture | ✅ Proven | Energy savings measured on edge devices |
-| Gossip mesh propagation | ✅ Proven | Standard protocol, battle-tested |
+| Semantic filtering | ⚙️ Demonstrated | 90%+ reduction in synthetic benchmarks (single author) |
+| Procrustes alignment | ⚙️ Demonstrated | Cross-model communication in controlled tests |
+| Event-driven architecture | ⚙️ Demonstrated | Simulated energy savings in toy scenarios |
+| Gossip mesh propagation | ⚙️ Demonstrated | Standard protocol implemented, small-scale tests |
 
 ### What We're Researching
 
@@ -226,7 +230,7 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for detailed guidelines.
 **Quick links:**
 - Run the [Quick Start](./reference_impl/python/README.md)
 - Read the [Technical Specification](./docs/01_specs/v1.0_current/spec_v1_final.md)
-- Join [GitHub Discussions](https://github.com/nick-yudin/resonance-protocol/discussions)
+- Join [GitHub Discussions](https://github.com/nick-yudin/SEP/discussions)
 
 **Governance:** All public artifacts maintained in English.
 
@@ -234,20 +238,24 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for detailed guidelines.
 
 ## 📜 License
 
-[To be specified]
+**Code & Implementation:** Apache-2.0 License (see [LICENSE](./LICENSE))
+
+**Documentation & Specification:** Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+You are free to use, modify, and distribute this work with attribution.
 
 ---
 
 ## 🎓 Citation
 
-If you use Resonance Protocol in research, please cite:
+If you use the Semantic Event Protocol (SEP) in research, please cite:
 
 ```
-@misc{resonance2025,
-  title={Resonance Protocol: A Semantic Event Standard for Distributed Edge Intelligence},
+@misc{sep2025,
+  title={Semantic Event Protocol (SEP): A Standard for Distributed Edge Intelligence},
   author={Nikolay Yudin},
   year={2025},
-  url={https://resonanceprotocol.org}
+  url={https://seprotocol.ai}
 }
 ```
 

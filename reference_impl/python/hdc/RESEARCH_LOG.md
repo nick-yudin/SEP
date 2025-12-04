@@ -551,7 +551,7 @@ Key findings:
 
 **Resolution of M2.5b contradiction:** Data quality metrics (diversity, coverage) are imperfect proxies for downstream performance. Phase M2.5c shows that subtle differences in curation space geometry translate to meaningful improvements in fine-tuning loss.
 
-### Implications for Resonance Protocol
+### Implications for SEP
 
 1. ✅ **HDC is not just "compression"** — it's a **better representation** for data curation
 2. ✅ **Edge devices can curate training data** without heavy transformer models
@@ -664,7 +664,7 @@ Key findings:
 
 **Curriculum strategy matters:** Sharp transitions (easy → hard) outperform gradual progressions, suggesting that contrast between difficulty levels accelerates learning.
 
-### Implications for Resonance Protocol
+### Implications for SEP
 
 1. ✅ **HDC enables curriculum learning** — Clustering provides difficulty ranking for free
 2. ✅ **Edge-friendly implementation** — HDC clustering is computationally cheap compared to difficulty labeling
@@ -790,7 +790,7 @@ HDC vectors are effective for **data curation** (selecting training examples) bu
 
 **Main finding:** HDC works for **data curation and curriculum learning**, not for **runtime injection** as pseudo-tokens.
 
-**M2.5 COMPLETE** — HDC-guided curriculum learning validated as core technology for Resonance Protocol. HDC semantic header approach abandoned.
+**M2.5 COMPLETE** — HDC-guided curriculum learning validated as core technology for SEP. HDC semantic header approach abandoned.
 
 ---
 
@@ -886,7 +886,7 @@ Statistical learning (transformers) hits fundamental limits on compositional gen
 - Transformers: Pattern matching on training data (fails on unseen combinations)
 - HDC: Mathematical composition rules (works on all combinations)
 
-### Implications for Resonance Protocol
+### Implications for SEP
 
 1. ✅ **Semantic events should carry structural composition, not just embeddings** — Enables zero-shot generalization
 2. ✅ **HDC as representation layer** — Compositional generalization without training
@@ -913,7 +913,7 @@ Statistical learning (transformers) hits fundamental limits on compositional gen
 
 This is a fundamental finding: HDC's structural composition enables generalization that statistical learning cannot achieve, regardless of scale.
 
-**Key takeaway:** Resonance Protocol's use of HDC is not just an optimization — it enables a fundamentally different type of intelligence suitable for edge deployment.
+**Key takeaway:** SEP's use of HDC is not just an optimization — it enables a fundamentally different type of intelligence suitable for edge deployment.
 
 ### Files Created
 - `fair_test_v3.ipynb` — Final fair comparison experiment
@@ -989,7 +989,7 @@ Round 3: Node A 1.92 → Node B 1.92 (converged!)
 **Problem:** 17 MB per round is too much for mesh networks.
 **Solution:** M3b will add HDC compression (target: <1 MB per round).
 
-### Implications for Resonance Protocol
+### Implications for SEP
 
 1. ✅ **Distributed training is possible** — core thesis validated
 2. ✅ **No datacenter required** — two Colab notebooks = two "edge devices"
@@ -1000,7 +1000,7 @@ Round 3: Node A 1.92 → Node B 1.92 (converged!)
 
 > **"Distributed training doesn't require InfiniBand or datacenter. Two nodes on different continents can train a shared model through a simple database."**
 
-This validates the core Resonance Protocol thesis: AI training can be decentralized.
+This validates the core SEP thesis: AI training can be decentralized.
 
 ### Files Created
 - `M3a_Node_A.ipynb` — Node A training notebook
@@ -1097,7 +1097,7 @@ Both nodes converged to identical loss (2.02).
 
 **5% loss increase for 32× bandwidth reduction is excellent trade-off.**
 
-### Implications for Resonance Protocol
+### Implications for SEP
 
 1. ✅ **Edge-friendly bandwidth** — 271 KB works on 3G/4G, mesh networks
 2. ✅ **HDC compression validated** — Ternary quantization preserves learning
@@ -1108,7 +1108,7 @@ Both nodes converged to identical loss (2.02).
 
 > **"32× compression makes distributed AI training practical for edge devices. The 5% accuracy trade-off is negligible compared to the bandwidth savings."**
 
-This proves the core Resonance thesis: HDC enables efficient distributed AI.
+This proves the core SEP thesis: HDC enables efficient distributed AI.
 
 ### Files Created
 - `M3b_Node_A.ipynb` — Node A with HDC compression (local only, contains credentials)
@@ -1207,7 +1207,7 @@ Instead of exchanging weights (architecture-specific), exchange **semantic knowl
 >
 > By sharing *what the model learned* (examples + labels + embeddings) instead of *how it represents knowledge* (weights), we enable **cross-architecture knowledge transfer**.
 
-### Implications for Resonance Protocol
+### Implications for SEP
 1. ✅ **Heterogeneous networks are possible** — Phones, laptops, servers can run different models
 2. ✅ **Model-agnostic knowledge format** — Knowledge packets work across architectures
 3. ✅ **Edge devices can learn from cloud** — Lightweight models benefit from powerful teachers

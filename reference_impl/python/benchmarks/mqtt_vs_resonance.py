@@ -11,7 +11,7 @@ Scenario:
 
 Comparison:
 - MQTT: Sends ALL data (legacy)
-- Resonance: Sends only semantic changes
+- SEP: Sends only semantic changes
 """
 
 import numpy as np
@@ -34,7 +34,7 @@ NOISE_RANGE = 2.0      # ±2% noise
 ANOMALY_PROBABILITY = 0.05  # 5% chance
 ANOMALY_MAGNITUDE = 15.0    # ±15-30% spike
 
-SEMANTIC_THRESHOLD = 0.35   # Resonance sensitivity
+SEMANTIC_THRESHOLD = 0.35   # SEP sensitivity
 
 # Energy model (simplified)
 MQTT_PACKET_SIZE = 128      # bytes (JSON overhead)
@@ -104,15 +104,15 @@ def simulate_mqtt(data):
 
 def simulate_resonance(data, anomalies):
     """
-    Resonance sends only when semantic meaning changes.
+    SEP sends only when semantic meaning changes.
     Uses embeddings to detect significant shifts.
     """
-    print("[Resonance] Loading semantic model...")
+    print("[SEP] Loading semantic model...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
     
     # OPTIMIZATION: Batch encode all texts at once (100x faster!)
     # Create semantically rich descriptions that capture operational context
-    print("[Resonance] Encoding all samples (batch processing)...")
+    print("[SEP] Encoding all samples (batch processing)...")
     texts = []
     for i, value in enumerate(data):
         if anomalies[i]:
@@ -135,7 +135,7 @@ def simulate_resonance(data, anomalies):
     last_vector = None
     transmissions = []
     
-    print("[Resonance] Processing semantic distances...")
+    print("[SEP] Processing semantic distances...")
     for i, current_vector in enumerate(vectors):
         if last_vector is None:
             # First reading always transmits
@@ -166,7 +166,7 @@ def simulate_resonance(data, anomalies):
     duty_cycle = (packets_sent / len(data)) * 100
     
     return {
-        'protocol': 'Resonance',
+        'protocol': 'SEP',
         'packets_sent': packets_sent,
         'bytes_sent': total_bytes,
         'energy_mah': energy_mah,
@@ -228,7 +228,7 @@ def print_comparison(mqtt_result, resonance_result, anomalies):
     print("BATTERY LIFE ESTIMATE (2000mAh battery)")
     print("-"*70)
     print(f"{'MQTT':<30} {mqtt_days:>19.1f} days")
-    print(f"{'Resonance':<30} {res_days:>19.1f} days")
+    print(f"{'SEP':<30} {res_days:>19.1f} days")
     print(f"{'Battery Life Extension':<30} {'-':>19} {(res_days/mqtt_days):>17.1f}x")
     
     print("\n" + "="*70)
@@ -246,7 +246,7 @@ def print_comparison(mqtt_result, resonance_result, anomalies):
     print("""
 This benchmark uses float32 vectors (1536 bytes/packet) for demonstration.
 
-In production Resonance deployment with:
+In production SEP deployment with:
   • Ternary quantization (BitNet-style):  96 bytes/packet (16x smaller)
   • HDC (Hyperdimensional Computing):    128 bytes/packet
   
@@ -309,11 +309,11 @@ def main():
     mqtt_time = time.time() - start
     print(f"      ✓ MQTT simulation complete ({mqtt_time:.2f}s)")
     
-    print("\n[3/4] Simulating Resonance Protocol...")
+    print("\n[3/4] Simulating SEP Protocol...")
     start = time.time()
     resonance_result = simulate_resonance(data, anomalies)
     resonance_time = time.time() - start
-    print(f"      ✓ Resonance simulation complete ({resonance_time:.2f}s)")
+    print(f"      ✓ SEP simulation complete ({resonance_time:.2f}s)")
     
     print("\n[4/4] Generating comparison report...")
     print_comparison(mqtt_result, resonance_result, anomalies)

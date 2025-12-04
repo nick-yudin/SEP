@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package resonance;
 
-// The fundamental unit of information exchange in the Resonance Network.
+// The fundamental unit of information exchange in the SEP Network.
 // We trade Meaning, not raw data.
 message SemanticEvent {
   // Unique identifier of the transmitting node (e.g., UUID)

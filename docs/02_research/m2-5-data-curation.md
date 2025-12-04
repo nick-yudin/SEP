@@ -8,7 +8,7 @@ sidebar_position: 2
 
 **Status:** ✅ SUCCESS — HDC competitive with Sentence Transformers
 **Date:** November 2025
-**Code:** [`/reference_impl/python/hdc/compare_curation_methods.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/compare_curation_methods.py)
+**Code:** [`/reference_impl/python/hdc/compare_curation_methods.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/compare_curation_methods.py)
 
 ---
 
@@ -131,9 +131,9 @@ graph TD
 
 ---
 
-## Implications for Resonance Protocol
+## Implications for SEP
 
-This experiment validates **Invariant 4** of Resonance Protocol:
+This experiment validates **Invariant 4** of SEP:
 
 > **Semantic Distance and Threshold:** A semantic event MUST be emitted when the distance between the current state and the last transmitted state exceeds a threshold.
 

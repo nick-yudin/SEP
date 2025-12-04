@@ -8,7 +8,7 @@ sidebar_position: 3
 
 **Status:** ✅ SUCCESS — Sharp curriculum achieves 100% accuracy
 **Date:** November 2025
-**Code:** [`/reference_impl/python/hdc/evaluate_curation.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/evaluate_curation.py)
+**Code:** [`/reference_impl/python/hdc/evaluate_curation.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/evaluate_curation.py)
 
 ---
 
@@ -144,11 +144,11 @@ This validates that:
 
 ---
 
-## Implications for Resonance Protocol
+## Implications for SEP
 
 This experiment demonstrates that **HDC enables intelligent data ordering for distributed learning**.
 
-In a Resonance mesh:
+In a SEP mesh:
 1. **Nodes can estimate sample difficulty locally** using HDC clustering
 2. **Easy samples propagate first**, building shared foundation
 3. **Hard samples propagate later**, refining edge cases

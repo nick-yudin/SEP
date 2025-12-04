@@ -1,21 +1,24 @@
 ---
 id: spec-v1-final
-title: Resonance Unified Specification (Level 1)
-description: The technical standard for Resonance Protocol Level 1 with HDC.
+title: Semantic Event Protocol (SEP) — Level 1 Specification
+description: The technical standard for the Semantic Event Protocol (SEP) Level 1 with HDC.
+slug: /specs/v1.0_current/spec-v1-final
 ---
 
-# Resonance Unified Specification (Level 1)
+# Semantic Event Protocol (SEP) — Level 1 Specification
+
+**Protocol Name:** Semantic Event Protocol (SEP)
 **Version:** 1.1.0 (Ironclad + HDC)
-**Status:** Implemented & Experimentally Validated (Python Reference)
+**Status:** Alpha reference implementation (Python)
 **Date:** December 2025
 
 ---
 
 ## 1. Introduction
 
-This document defines the technical standard for **Resonance Protocol Level 1**. Any node compliant with this specification can join the mesh, filter noise, and exchange semantic events, regardless of the underlying hardware or programming language.
+This document defines the technical standard for the **Semantic Event Protocol (SEP) Level 1**. Any node compliant with this specification can join the mesh, filter noise, and exchange semantic events, regardless of the underlying hardware or programming language.
 
-**This specification is built on Hyperdimensional Computing (HDC)**, a proven technology for semantic compression and cross-architecture knowledge transfer.
+**This specification is built on Hyperdimensional Computing (HDC)**, demonstrated in small-scale experiments for semantic compression and cross-architecture knowledge transfer.
 
 ---
 
@@ -262,7 +265,7 @@ The official Python implementation of this spec is available in:
 
 ## 9. Compliance Requirements
 
-A Resonance Level 1 node MUST:
+A SEP Level 1 node MUST:
 
 1. ✅ Encode all semantic data using 10,000-d ternary HDC vectors
 2. ✅ Enforce 70% sparsity in HDC representations
@@ -298,7 +301,7 @@ A Resonance Level 1 node MUST:
 
 ## 11. Conclusion
 
-Resonance Level 1 specification provides a complete, experimentally validated standard for semantic-first distributed intelligence based on Hyperdimensional Computing.
+SEP Level 1 specification provides a complete, experimentally validated standard for semantic-first distributed intelligence based on Hyperdimensional Computing.
 
 **This is proven technology, not speculation.**
 

@@ -6,7 +6,7 @@ sidebar_position: 5
 
 # M3 Series: Distributed Semantic Intelligence
 
-The M3 series validates the core claim of Resonance Protocol: **distributed training via semantic synchronization is practical and efficient**.
+The M3 series validates the core claim of SEP: **distributed training via semantic synchronization is practical and efficient**.
 
 ---
 
@@ -14,7 +14,7 @@ The M3 series validates the core claim of Resonance Protocol: **distributed trai
 
 **Status:** ✅ SUCCESS — Multi-node convergence
 **Date:** December 2025
-**Code:** [`/reference_impl/python/hdc/distributed_trainer.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/distributed_trainer.py)
+**Code:** [`/reference_impl/python/hdc/distributed_trainer.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/distributed_trainer.py)
 
 ### Hypothesis
 
@@ -76,7 +76,7 @@ sequenceDiagram
 
 **Status:** ✅✅ STRONG SUCCESS — 32× compression
 **Date:** December 2025
-**Code:** [`/reference_impl/python/hdc/distributed_trainer_hdc.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/distributed_trainer_hdc.py)
+**Code:** [`/reference_impl/python/hdc/distributed_trainer_hdc.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/distributed_trainer_hdc.py)
 
 ### Hypothesis
 
@@ -142,7 +142,7 @@ graph LR
 
 **Status:** ✅✅ BREAKTHROUGH — 93% transfer efficiency
 **Date:** December 2025
-**Code:** [`/reference_impl/python/hdc/knowledge_transfer.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/knowledge_transfer.py)
+**Code:** [`/reference_impl/python/hdc/knowledge_transfer.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/knowledge_transfer.py)
 
 ### Hypothesis
 
@@ -248,7 +248,7 @@ sequenceDiagram
 
 ---
 
-## Implications for Resonance Protocol
+## Implications for SEP
 
 ### ✅ Distributed Training via Semantic Packets
 
@@ -342,11 +342,11 @@ print(f"Transfer Efficiency: {student_accuracy / teacher_accuracy:.1%}")
 
 ## Conclusion
 
-The M3 series **proves that Resonance Protocol's vision is achievable**:
+The M3 series **proves that SEP's vision is achievable**:
 
 1. ✅ Distributed training via semantic synchronization
 2. ✅ Extreme bandwidth efficiency (32× compression)
 3. ✅ Architecture-agnostic knowledge transfer (93% efficiency)
 4. ✅ No centralized coordinator required
 
-**Resonance Protocol is not a theory. It is proven technology.**
+**SEP is not a theory. It is proven technology.**

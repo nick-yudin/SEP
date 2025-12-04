@@ -5,9 +5,11 @@ slug: /research
 sidebar_position: 1
 ---
 
-# HDC Research: Experimental Validation
+# HDC Research: Experimental Exploration
 
-This section documents the systematic experimental validation of Resonance Protocol's core claims through Hyperdimensional Computing (HDC).
+This section documents small-scale experimental exploration of SEP's core concepts through Hyperdimensional Computing (HDC).
+
+**Caveat:** All experiments conducted by single author, no external replication. Results are preliminary and require independent validation.
 
 ## Research Timeline
 
@@ -30,51 +32,53 @@ gantt
 
 | Phase | Experiment | Key Metric | Result | Status |
 |-------|------------|------------|--------|--------|
-| **M2.5a** | HDC Data Curation | Coverage vs Random | **+4.66%** | ✅ Success |
-| **M2.5b** | Curriculum Learning | Accuracy (sharp curriculum) | **100%** | ✅ Success |
-| **M2.6** | Compositional Generalization | Unseen combinations | **100%** | ✅ Success |
-| **M3a** | Distributed Training (raw) | Convergence | 2 nodes, 17.5 MB/round | ✅ Success |
-| **M3b** | HDC Compression | Compression ratio | **32×** (271 KB/round) | ✅ Success |
-| **M3c′** | Cross-Architecture Transfer | Transfer efficiency | **93%** (DistilBERT→GPT-2) | ✅ **Breakthrough** |
+| **M2.5a** | HDC Data Curation | Coverage vs Random | **+4.66%** | ⚙️ Demonstrated |
+| **M2.5b** | Curriculum Learning | Accuracy (sharp curriculum) | **100%** | ⚙️ Toy task |
+| **M2.6** | Compositional Generalization | Unseen combinations | **100%** | ⚙️ Synthetic data |
+| **M3a** | Distributed Training (raw) | Convergence | 2 nodes, 17.5 MB/round | ⚙️ Small scale |
+| **M3b** | HDC Compression | Compression ratio | **32×** (271 KB/round) | ⚙️ LoRA quantization |
+| **M3c′** | Cross-Architecture Transfer | Transfer efficiency | **93%** (DistilBERT→GPT-2) | ⚙️ SST-2 only |
 
 ## Research Phases
 
 ### M2.5 Series: Data Efficiency
 
-**Goal:** Prove HDC can optimize data selection and curriculum design.
+**Goal:** Explore whether HDC can optimize data selection and curriculum design.
 
 - [**M2.5a: Data Curation**](/docs/research/m2-5-data-curation) - HDC clustering competitive with Sentence Transformers
 - [**M2.5b: Curriculum Learning**](/docs/research/m2-5-curriculum) - Sharp HDC-guided curriculum achieves 100% accuracy
 
-**Key Finding:** HDC-based semantic clustering enables intelligent data selection and curriculum design.
+**Observation:** HDC-based semantic clustering showed competitive performance on small synthetic tasks. Generalization to real-world scenarios unknown.
 
 ### M2.6: Compositional Generalization
 
-**Goal:** Prove HDC enables perfect compositional reasoning.
+**Goal:** Test whether HDC can handle compositional reasoning.
 
 - [**M2.6: Compositional Generalization**](/docs/research/m2-6-compositional) - 100% accuracy on unseen attribute combinations
 
-**Key Finding:** HDC's algebraic properties enable perfect zero-shot generalization to novel combinations.
+**Observation:** HDC achieved perfect scores on a toy compositional task with synthetic data. Whether this scales to realistic compositional challenges remains an open question.
 
 ### M3 Series: Distributed Intelligence
 
-**Goal:** Prove HDC enables practical distributed semantic synchronization.
+**Goal:** Test whether HDC enables distributed semantic synchronization.
 
 - [**M3a: Raw Distributed Training**](/docs/research/m3-series#phase-m3a-raw-distributed-training) - Multi-node LoRA training via Firebase
 - [**M3b: HDC Compression**](/docs/research/m3-series#phase-m3b-hdc-compression) - 32× compression of semantic knowledge
 - [**M3c′: Cross-Architecture Transfer**](/docs/research/m3-series#phase-m3c-cross-architecture-knowledge-transfer) - 93% knowledge transfer between different architectures
 
-**Key Finding:** HDC provides an architecture-agnostic semantic representation that enables extreme compression and cross-architecture knowledge transfer.
+**Observation:** HDC demonstrated compression and cross-architecture transfer on narrow benchmarks (2 nodes, SST-2 task). Scaling to production environments and diverse tasks requires further research.
 
 ## Experimental Methodology
 
-All experiments follow a rigorous scientific methodology:
+All experiments follow structured methodology:
 
-1. **Hypothesis:** Clear statement of what we aim to prove
-2. **Baseline:** Comparison against established methods (Random, Sentence Transformers)
+1. **Hypothesis:** Clear statement of what we aim to test
+2. **Baseline:** Comparison against established methods where applicable
 3. **Metrics:** Quantitative measures (accuracy, compression ratio, transfer efficiency)
-4. **Reproducibility:** All code and data publicly available
-5. **Statistical Significance:** Multiple runs, error bars, confidence intervals
+4. **Reproducibility:** Code and small datasets publicly available
+5. **Limitations:** Single author, small scale, narrow tasks
+
+**Note:** These are exploratory experiments, not peer-reviewed studies. Independent replication needed before drawing strong conclusions.
 
 ## Technology Stack
 
@@ -84,28 +88,28 @@ All experiments follow a rigorous scientific methodology:
 - **Datasets:** STS-B, SNLI, Alpaca
 - **Infrastructure:** Firebase (distributed sync), local compute (M2 Max)
 
-## Implications for Resonance Protocol
+## Implications for SEP
 
-These experimental results validate the core architectural claims of Resonance Protocol:
+These experimental results suggest potential directions for SEP:
 
-### ✅ Semantic Events (Invariant 2)
-**Proven:** HDC compression reduces state synchronization from 17.5 MB to 271 KB while preserving semantic meaning.
+### ⚙️ Semantic Events (Invariant 2)
+**Observed:** HDC compression reduced synchronization from 17.5 MB to 271 KB in our 2-node LoRA setup. Generalization to larger meshes and different model types requires validation.
 
-### ✅ Local Cognitive Autonomy (Invariant 3)
-**Proven:** Each node can operate with its own ternary HDC encoder (70% sparsity) without requiring shared embeddings.
+### ⚙️ Local Cognitive Autonomy (Invariant 3)
+**Observed:** Ternary HDC encoders (70% sparsity) operated locally in our experiments. Real-world device-level autonomy requires hardware testing.
 
-### ✅ Semantic Deltas (Invariant 5)
-**Proven:** HDC semantic packets achieve 32× compression compared to raw parameter transfer.
+### ⚙️ Semantic Deltas (Invariant 5)
+**Observed:** 32× compression achieved through ternary quantization of LoRA weights. Whether this extends to online semantic event streams is untested.
 
-### ✅ Cross-Architecture Compatibility
-**Proven:** 93% knowledge transfer between completely different model architectures (DistilBERT ↔ GPT-2).
+### ⚙️ Cross-Architecture Compatibility
+**Observed:** 93% knowledge transfer between DistilBERT and GPT-2 on SST-2 sentiment task. Generalization to other architectures and tasks untested.
 
-### ✅ Compositional Reasoning
-**Proven:** 100% accuracy on unseen combinations demonstrates HDC's algebraic composability.
+### ⚙️ Compositional Reasoning
+**Observed:** 100% accuracy on toy synthetic compositional task. Scaling to realistic compositional challenges remains unvalidated.
 
 ## Next Steps
 
-The research validates Resonance Protocol's theoretical foundation. Future work will focus on:
+These preliminary experiments suggest directions for further investigation:
 
 1. **Hardware Implementation:** HDC on edge devices (ESP32, Raspberry Pi)
 2. **Real-Time Inference:** Event-driven semantic processing
@@ -119,4 +123,6 @@ Navigate to individual research pages using the sidebar to see detailed experime
 
 ---
 
-**All research is reproducible. See `/reference_impl/python/hdc/` for code.**
+**Code is available for inspection. See `/reference_impl/python/hdc/`.**
+
+**Caveat:** Single-author experiments require independent replication before strong conclusions can be drawn.

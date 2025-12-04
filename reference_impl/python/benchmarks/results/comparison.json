@@ -13,7 +13,7 @@
     "duty_cycle": 100.0
   },
   "resonance": {
-    "protocol": "Resonance",
+    "protocol": "SEP",
     "packets_sent": 1095,
     "bytes_sent": 1681920,
     "energy_mah": 82135.905,

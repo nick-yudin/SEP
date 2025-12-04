@@ -1,4 +1,4 @@
-# Resonance Protocol - Python Reference Implementation
+# SEP Protocol - Python Reference Implementation
 # Level 1 Specification Compliant
 
 # Core ML

@@ -8,7 +8,7 @@ sidebar_position: 4
 
 **Status:** ✅ SUCCESS — 100% accuracy on unseen combinations
 **Date:** December 2025
-**Code:** [`/reference_impl/python/hdc/compositional_test.py`](https://github.com/nick-yudin/resonance-protocol/blob/main/reference_impl/python/hdc/compositional_test.py)
+**Code:** [`/reference_impl/python/hdc/compositional_test.py`](https://github.com/nick-yudin/SEP/blob/main/reference_impl/python/hdc/compositional_test.py)
 
 ---
 
@@ -192,11 +192,11 @@ This is fundamentally different from neural networks:
 
 ---
 
-## Implications for Resonance Protocol
+## Implications for SEP
 
 This experiment validates that **HDC enables compositional semantic events** in distributed systems.
 
-In a Resonance mesh:
+In a SEP mesh:
 
 1. **Nodes can decompose events:**
    - Receive composite event `E = (context, meaning)`

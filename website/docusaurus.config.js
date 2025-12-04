@@ -5,15 +5,15 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'RESONANCE',
-  tagline: 'The clock stops. The resonance begins.',
+  title: 'Semantic Event Protocol (SEP)',
+  tagline: 'Event-driven distributed intelligence. Triggered by meaning, not time.',
   favicon: 'img/logo.svg',
 
-  url: 'https://resonanceprotocol.org',
+  url: 'https://seprotocol.ai',
   baseUrl: '/',
 
-  organizationName: 'rAI-Research-Collective', 
-  projectName: 'resonance-protocol', 
+  organizationName: 'nick-yudin',
+  projectName: 'SEP', 
 
   onBrokenLinks: 'warn', 
   onBrokenMarkdownLinks: 'warn',
@@ -66,15 +66,28 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'description', content: 'Semantic Event Protocol (SEP) — An experimental protocol for event-driven distributed intelligence. Demonstrated bandwidth compression and cross-architecture knowledge transfer in small-scale experiments.'},
+        {name: 'keywords', content: 'semantic events, distributed AI, hyperdimensional computing, HDC, edge intelligence, event-driven computing, neural networks'},
+        {property: 'og:title', content: 'Semantic Event Protocol (SEP)'},
+        {property: 'og:description', content: 'An experimental protocol for event-driven distributed intelligence. Early evidence for bandwidth compression and cross-architecture transfer. Research by Nikolay Yudin.'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:url', content: 'https://seprotocol.ai'},
+        {property: 'og:image', content: 'https://seprotocol.ai/img/docusaurus-social-card.jpg'},
+        {property: 'twitter:card', content: 'summary_large_image'},
+        {property: 'twitter:title', content: 'Semantic Event Protocol (SEP)'},
+        {property: 'twitter:description', content: 'An experimental protocol for event-driven distributed intelligence. Triggered by meaning, not time.'},
+        {property: 'twitter:image', content: 'https://seprotocol.ai/img/docusaurus-social-card.jpg'},
+      ],
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'RESONANCE',
+        title: 'SEP',
         logo: {
-          alt: 'Resonance Protocol',
+          alt: 'Semantic Event Protocol',
           src: 'img/logo.svg',
           srcDark: 'img/logo.svg', 
         },
@@ -90,7 +103,7 @@ const config = {
             label: 'Specification',
           },
           {
-            href: 'https://github.com/nick-yudin/resonance-protocol',
+            href: 'https://github.com/nick-yudin/SEP',
             label: 'GitHub',
             position: 'right',
           },
@@ -109,7 +122,8 @@ const config = {
           {
             title: 'Community',
             items: [
-              { label: 'Twitter', href: 'https://twitter.com/rAI_stack' },
+              { label: 'Twitter', href: 'https://twitter.com/Nikolay_Yudin_' },
+              { label: 'Email', href: 'mailto:1@seprotocol.ai' },
             ],
           },
         ],

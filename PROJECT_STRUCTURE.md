@@ -1,6 +1,6 @@
-# Resonance Protocol Project Structure
+# SEP Project Structure
 
-This document serves as the canonical map for the Resonance Monorepo, defining the single source of truth for specifications, implementations, and documentation.
+This document serves as the canonical map for the SEP Monorepo, defining the single source of truth for specifications, implementations, and documentation.
 
 ## Core Hierarchy
 
@@ -8,7 +8,7 @@ The repository is organized by function to support development across documentat
 
 ```mermaid
 graph TD
-    ROOT[resonance-protocol /] --- DOCS[docs/]
+    ROOT[SEP /] --- DOCS[docs/]
     ROOT --- WEBSITE[website/]
     ROOT --- REFIMPL[reference_impl/]
     ROOT --- GITIGNORE(.gitignore)
@@ -46,7 +46,7 @@ Contains all Markdown documentation that is published via Docusaurus.
 
 ### 2. `/website` (Web Front-end)
 
-Contains the Docusaurus configuration and static assets for [resonanceprotocol.org].
+Contains the Docusaurus configuration and static assets for [seprotocol.ai].
 
 | File/Folder | Purpose | Status | 
  | ----- | ----- | ----- | 

@@ -10,7 +10,7 @@
 
 **Claim:** HDC (Hyperdimensional Computing) can solve this through structural composition — the ability to combine known concepts into new combinations without additional training.
 
-**Connection to Resonance Protocol:** If models fail to generalize due to lack of structural meaning, then HDC + event-driven approach could enable better generalization with less data on edge devices.
+**Connection to SEP:** If models fail to generalize due to lack of structural meaning, then HDC + event-driven approach could enable better generalization with less data on edge devices.
 
 ---
 
@@ -225,7 +225,7 @@ result = compose(SWIM, FOUR_TIMES)
 
 ---
 
-## 5. Implications for Resonance Protocol
+## 5. Implications for SEP
 
 ### 1. Semantic Events Should Use Structural Encoding
 
@@ -285,7 +285,7 @@ For documentation/website:
 
 1. **Scale test further** — more primitives, deeper composition
 2. **Test on natural language** — SCAN, COGS benchmarks
-3. **Implement HDC layer for Resonance** — practical integration
+3. **Implement HDC layer for SEP** — practical integration
 4. **Document for website** — create visual explainer
 
 ---
@@ -330,5 +330,5 @@ Seq2SeqTransformer(
 
 ---
 
-*Research conducted as part of Resonance Protocol development*
-*https://github.com/nick-yudin/resonance-protocol*
+*Research conducted as part of SEP development*
+*https://github.com/nick-yudin/SEP*

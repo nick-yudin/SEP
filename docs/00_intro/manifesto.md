@@ -5,14 +5,16 @@ slug: /manifesto
 sidebar_position: 1
 ---
 
-# Level 0: The Resonance Manifesto
+# Level 0: The SEP Manifesto
 
 :::info Abstract
 Contemporary Artificial Intelligence is built on synchronous processing, clock cycles, global orchestration, and continuous computation. These constraints are not laws of physics; they are historical artifacts of digital engineering.
 
-**Resonance proposes a different foundation.** Instead of computing at fixed intervals, devices compute *only when meaning changes*. Instead of transmitting raw data, nodes exchange *semantic deltas*. Instead of relying on centralized models, each device maintains *local cognitive autonomy*. The result is a distributed intelligent mesh where silence is the default, and computation occurs only at the emergence of meaningful events.
+**The Semantic Event Protocol (SEP) proposes a different foundation.**
 
-**This is not a theory. This is experimentally proven.**
+Instead of computing at fixed intervals, devices compute *only when meaning changes*. Instead of transmitting raw data, nodes exchange *semantic deltas*. Instead of relying on centralized models, each device maintains *local cognitive autonomy*. The result is a distributed intelligent mesh where silence is the default, and computation occurs only at the emergence of meaningful events.
+
+**This approach has been demonstrated in small-scale controlled experiments (single author, no external replication).** The findings suggest promising directions, but require independent validation and scaling before deployment.
 :::
 
 ---
@@ -28,9 +30,9 @@ This architecture is incompatible with:
 * Local-first autonomy
 * Responsive systems that awaken only to relevant change
 
-Resonance proposes a different computation model based on one axiom: **intelligence emerges from changes in meaning, not from the passage of time.**
+The Semantic Event Protocol (SEP) proposes a different computation model based on one axiom: **intelligence emerges from changes in meaning, not from the passage of time.**
 
-**Through rigorous experimentation, we have proven that this vision is achievable with current technology.**
+**Preliminary experiments suggest this approach may be feasible with current technology, though significant scaling and validation work remains.**
 
 ---
 
@@ -77,7 +79,7 @@ HDC operates in ultra-high-dimensional spaces (10,000 dimensions) using ternary 
 3. **Perfect Compositional Generalization:** 100% accuracy on unseen combinations
 4. **Efficient Distributed Training:** Multi-node synchronization via semantic packets
 
-### Why HDC Works for Resonance
+### Why HDC Works for SEP
 
 ```mermaid
 graph LR
@@ -103,7 +105,7 @@ HDC provides three critical properties:
 ### Invariant 1: Silence is the Default State
 Nodes remain inactive unless a semantic event occurs. No periodic heartbeats are required at the semantic level. Silence is meaningful and expected.
 
-**Proven:** HDC compression reduces synchronization traffic from 17.5MB to 271KB per round.
+**Demonstrated in controlled experiments:** HDC compression reduced synchronization traffic from 17.5MB to 271KB per round in our 2-node test setup.
 
 ### Invariant 2: Events Carry Meaning, Not Raw Data
 The fundamental unit is the **Semantic Event**:
@@ -114,12 +116,12 @@ E = (context, Δmeaning, confidence, provenance)
 
 Events communicate change in semantic space, not raw sensor outputs or model states.
 
-**Proven:** HDC semantic packets enable 93% cross-architecture knowledge transfer.
+**Observed in our benchmarks:** HDC semantic packets achieved 93% cross-architecture knowledge transfer efficiency on SST-2 sentiment task.
 
 ### Invariant 3: Local Cognitive Autonomy
 Each node maintains its private semantic embedding space. Local cognitive autonomy does not require shared embeddings or centralized models.
 
-**Proven:** Ternary HDC encoders operate locally with 70% sparsity, enabling device-level autonomy.
+**Demonstrated:** Ternary HDC encoders operated locally with 70% sparsity in our experiments, suggesting potential for device-level autonomy.
 
 ### Invariant 4: Semantic Distance and Threshold
 A semantic event MUST be emitted when the distance *d* between the current state and the last transmitted state exceeds a threshold *θ*:
@@ -128,12 +130,12 @@ A semantic event MUST be emitted when the distance *d* between the current state
 d(M_t, M_{t-1}) > θ
 ```
 
-**Proven:** HDC clustering achieves 4.66% better coverage than random sampling in data curation experiments.
+**Observed:** HDC clustering achieved 4.66% better coverage than random sampling in our synthetic composition task.
 
 ### Invariant 5: Semantic Deltas
 Nodes exchange only changes in meaning, not raw input or full state.
 
-**Proven:** 32× compression ratio demonstrates that semantic deltas are far more efficient than raw state transfer.
+**Observed:** 32× compression ratio in our LoRA weight quantization experiment suggests semantic deltas may be more efficient than raw state transfer.
 
 ### Invariant 6: Trust is Provenance
 Provenance metadata provides local confidence. There is no global root of trust (Authority).
@@ -142,7 +144,7 @@ Provenance metadata provides local confidence. There is no global root of trust 
 
 ---
 
-## 5. The Resonance Stack
+## 5. The SEP Stack
 
 The architecture is layered to separate physical sensing from cognitive reasoning.
 
@@ -214,13 +216,13 @@ graph TD
     linkStyle 5,6 stroke:#ff4d00,stroke-width:2px,color:#ff4d00
 ```
 
-**Proven:** Multi-node distributed training achieved convergence with only 271KB per synchronization round.
+**Demonstrated:** In our 2-node setup, distributed training converged with 271KB per synchronization round.
 
 ---
 
 ## 8. Experimental Validation
 
-The Resonance Protocol is not a theoretical exercise. Every core claim has been validated through systematic experimentation:
+The SEP is not a theoretical exercise. Every core claim has been validated through systematic experimentation:
 
 ### M2.5 Series: Data Efficiency
 - **M2.5a:** HDC-based data curation competitive with Sentence Transformers
@@ -241,14 +243,21 @@ The Resonance Protocol is not a theoretical exercise. Every core claim has been 
 
 ## 9. Conclusion
 
-Resonance proposes a semantic-first, event-driven architecture for distributed intelligence.
+The Semantic Event Protocol (SEP) proposes a semantic-first, event-driven architecture for distributed intelligence.
 
-**This is not speculation. This is proven technology.**
+**What we have demonstrated in controlled, small-scale experiments:**
+- 32× compression of LoRA weights via ternary HDC quantization (2-node setup, SST-2 task)
+- 93% cross-architecture knowledge transfer efficiency (DistilBERT → GPT-2, SST-2 sentiment)
+- 100% compositional generalization (synthetic attribute-object task, HDC vs 21% for small transformer)
+- Distributed training convergence via 271KB semantic packets (2 nodes, Alpaca subset)
 
-Through Hyperdimensional Computing, we have demonstrated:
-- 32× compression of semantic knowledge
-- 93% cross-architecture knowledge transfer
-- 100% compositional generalization
-- Distributed training via semantic synchronization
+**Limitations:**
+- Single author, no external replication
+- Synthetic or narrow datasets (SST-2, small Alpaca subset, toy composition tasks)
+- Small scale (2-10 nodes in simulation, not production edge devices)
+- No validation on real-world safety-critical systems
+- No hardware proof-of-concept for neuromorphic/memristor integration
 
-**The clock stops. The resonance begins.**
+These findings suggest a possible path toward distributed semantic computing, but significant research, scaling, and independent validation are required before production deployment.
+
+**Semantic events instead of clock cycles.**

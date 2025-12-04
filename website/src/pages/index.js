@@ -6,6 +6,7 @@ import BenchmarkViz from '@site/src/components/BenchmarkViz';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   useEffect(() => {
     // --- 1. TAILWIND SETUP (Safe Injection) ---
@@ -160,7 +161,7 @@ export default function Home() {
   return (
     <div className="antialiased selection:bg-signal selection:text-white bg-[#050505] min-h-screen text-[#e5e5e5]">
       <Head>
-        <title>RESONANCE | The Quiet Protocol</title>
+        <title>SEP | Semantic Event Protocol</title>
         <meta name="description" content="A protocol for semantic event computing." />
         
         {/* Fonts */}
@@ -194,45 +195,88 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-2xl font-display font-bold tracking-tighter text-white flex items-center gap-2">
             <div className="w-3 h-3 bg-signal rounded-full animate-pulse"></div>
-            RESONANCE
+            SEP
           </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             <a href="#problem" className="hover:text-signal transition-colors">Problem</a>
             <a href="#results" className="hover:text-signal transition-colors">Results</a>
             <a href="#status" className="hover:text-signal transition-colors">Status</a>
             <a href="/demo" className="hover:text-signal transition-colors">Demo</a>
             <a href="#join" className="hover:text-signal transition-colors">Join</a>
-            <a href="https://github.com/nick-yudin/resonance-protocol" target="_blank" className="text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all">
+            <a href="https://github.com/nick-yudin/SEP" target="_blank" className="text-white border border-white/20 px-4 py-1.5 rounded-full hover:bg-white hover:text-black transition-all">
               GitHub
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-white/10">
+            <div className="flex flex-col gap-4 text-sm font-medium text-gray-400">
+              <a href="#problem" className="hover:text-signal transition-colors" onClick={() => setMobileMenuOpen(false)}>Problem</a>
+              <a href="#results" className="hover:text-signal transition-colors" onClick={() => setMobileMenuOpen(false)}>Results</a>
+              <a href="#status" className="hover:text-signal transition-colors" onClick={() => setMobileMenuOpen(false)}>Status</a>
+              <a href="/demo" className="hover:text-signal transition-colors" onClick={() => setMobileMenuOpen(false)}>Demo</a>
+              <a href="#join" className="hover:text-signal transition-colors" onClick={() => setMobileMenuOpen(false)}>Join</a>
+              <a href="https://github.com/nick-yudin/SEP" target="_blank" className="text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all text-center">
+                GitHub
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section with Visualizer */}
-      <section className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
-        
+      <section className="relative min-h-screen flex flex-col justify-center items-center px-6 py-24 overflow-hidden">
+
         {/* Canvas Background */}
         <canvas id="hero-canvas"></canvas>
 
-        <div className="relative z-10 max-w-5xl text-center space-y-8 pt-20">
-          <div className="inline-block px-3 py-1 border border-signal/30 rounded text-xs font-mono text-signal tracking-widest uppercase mb-4 animate-fade-in">
-            Protocol Level 1 // Unified Spec
+        <div className="relative z-10 max-w-5xl text-center space-y-4 md:space-y-8">
+          <div className="inline-block px-3 py-1 border border-signal/30 rounded text-xs font-mono text-signal tracking-widest uppercase mb-2 md:mb-4 animate-fade-in">
+            Semantic Event Protocol (SEP) // Level 1
           </div>
-          <h1 className="text-5xl md:text-8xl font-display font-bold leading-tight tracking-tight text-white">
-            The Clock Stops.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-600">The Resonance Begins.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight tracking-tight text-white">
+            Compute Only When It Matters.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
-            We are replacing the tyranny of time with the physics of meaning. A paradigm shift to <span className="text-white">Ambient AGI</span>—ubiquitous as air, personal as a memory.
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
+            Semantic events instead of clock cycles.
           </p>
-          
-          <div className="flex flex-col md:flex-row justify-center gap-4 mt-12">
-            <Link to="/docs/specs/v1.0_current/spec-v1-final" className="group px-8 py-4 bg-white text-black font-bold rounded hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
+          <p className="text-base md:text-lg text-gray-500 max-w-3xl mx-auto font-light leading-relaxed mt-4">
+            An experimental protocol for event-driven distributed intelligence. Early evidence for bandwidth compression and cross-architecture transfer. Not production-ready.
+          </p>
+          <p className="text-xs md:text-sm text-gray-500 max-w-2xl mx-auto mt-4 md:mt-6 italic">
+            We publish our results and reference code to invite scrutiny and collaboration.
+          </p>
+          <p className="text-xs text-gray-600 max-w-2xl mx-auto mt-3 md:mt-6 border-t border-white/5 pt-3 md:pt-4">
+            <strong>SEP</strong> (Semantic Event Protocol) at <strong className="text-white">seprotocol.ai</strong> by Nikolay Yudin.
+          </p>
+
+          <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-4 mt-6 md:mt-12">
+            <Link to="/docs/specs/v1.0_current/spec-v1-final" className="group px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded hover:bg-gray-200 transition-all flex items-center justify-center gap-2 text-sm md:text-base">
               Read Specification
-              <svg className="group-hover:translate-y-1 transition-transform" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+              <svg className="group-hover:translate-y-1 transition-transform" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
             </Link>
-            <a href="/whitepaper.pdf" target="_blank" className="px-8 py-4 border border-white/20 text-white rounded hover:border-signal hover:text-signal transition-all">
+            <a href="/whitepaper.pdf" target="_blank" className="px-6 md:px-8 py-3 md:py-4 border border-white/20 text-white rounded hover:border-signal hover:text-signal transition-all text-sm md:text-base">
               Download Whitepaper (L0)
             </a>
           </div>
@@ -373,15 +417,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section: Proven Results */}
+      {/* Section: Experimental Results */}
       <section id="results" className="py-32 px-6 bg-silent border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-sm font-mono text-signal tracking-widest uppercase mb-6 text-center">Research Results</h2>
           <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 text-center">
-            What We've Proven (Not Promised)
+            What We've Demonstrated in Small-Scale Experiments
           </h3>
-          <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
-            Real experiments. Real numbers. Reproducible results.
+          <p className="text-center text-gray-400 mb-4 max-w-2xl mx-auto">
+            Preliminary results from controlled benchmarks. Single author, no external replication yet.
+          </p>
+          <p className="text-center text-gray-500 text-sm mb-16 max-w-2xl mx-auto italic">
+            These findings suggest promising directions, but require independent validation before production use.
           </p>
 
           {/* Three Main Results */}
@@ -436,26 +483,26 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Why This Matters */}
+          {/* Why This Could Matter */}
           <div className="glass p-10 rounded-xl border border-signal/20 bg-signal/5 mb-12">
-            <h4 className="text-lg font-mono text-signal mb-6 uppercase tracking-wider">Why This Changes Everything</h4>
+            <h4 className="text-lg font-mono text-signal mb-6 uppercase tracking-wider">Potential Implications (If Validated at Scale)</h4>
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <h5 className="text-white font-bold mb-2">Heterogeneous Networks</h5>
                 <p className="text-gray-400 text-sm">
-                  Different models can share knowledge. No need for identical architectures across all nodes.
+                  In our controlled tests, different models could share knowledge without identical architectures.
                 </p>
               </div>
               <div>
                 <h5 className="text-white font-bold mb-2">Edge-Viable Bandwidth</h5>
                 <p className="text-gray-400 text-sm">
-                  271KB per sync works on 3G, mesh networks, satellite links. Distributed training leaves the datacenter.
+                  271KB per sync could work on 3G networks. Scaling to production edge environments requires further validation.
                 </p>
               </div>
               <div>
-                <h5 className="text-white font-bold mb-2">Structural Robustness</h5>
+                <h5 className="text-white font-bold mb-2">Structural Properties</h5>
                 <p className="text-gray-400 text-sm">
-                  HDC provides compositional guarantees that scale-based approaches fundamentally cannot achieve.
+                  HDC shows compositional behavior in toy tasks. Whether this holds for safety-critical systems is an open research question.
                 </p>
               </div>
             </div>
@@ -704,7 +751,7 @@ export default function Home() {
                 <div className="text-xs font-mono text-signal mb-2">CASE: THE LAST LANGUAGE THAT SURVIVED</div>
                 <h4 className="text-2xl font-bold text-white mb-4">Endangered Tongues, Embedded in Silicon</h4>
                 <p className="text-gray-400 leading-relaxed mb-6">
-                  "There used to be a joke: 'If it's not in the cloud, it doesn't exist.' That joke killed a thousand languages. No venture-backed model would ever be trained on a village that couldn't pay. With Resonance, the direction flipped. A handful of solar-powered nodes, deep in a mountain valley, listened and learned locally for years — never uploading a byte. Children spoke to grandparents; the mesh distilled patterns into a tiny semantic core that lives only there. Now when a child speaks in the dominant language, the answer arrives in the ancestral one — instantly, offline. No cloud owns it. No corporation can deprecate the API. As long as the village keeps its devices alive, the language remains alive — not as an archive, but as a living interface."
+                  "There used to be a joke: 'If it's not in the cloud, it doesn't exist.' That joke killed a thousand languages. No venture-backed model would ever be trained on a village that couldn't pay. With SEP, the direction flipped. A handful of solar-powered nodes, deep in a mountain valley, listened and learned locally for years — never uploading a byte. Children spoke to grandparents; the mesh distilled patterns into a tiny semantic core that lives only there. Now when a child speaks in the dominant language, the answer arrives in the ancestral one — instantly, offline. No cloud owns it. No corporation can deprecate the API. As long as the village keeps its devices alive, the language remains alive — not as an archive, but as a living interface."
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-2 py-1 bg-white/10 rounded text-xs text-gray-300">Connectivity: Offline</span>
@@ -835,7 +882,7 @@ export default function Home() {
               <div>
                 <div className="text-3xl font-bold text-signal mb-3">3</div>
                 <p className="text-sm text-gray-300">
-                  <a href="https://github.com/nick-yudin/resonance-protocol/discussions" className="text-white hover:text-signal transition-colors font-bold">Join the conversation</a>
+                  <a href="https://github.com/nick-yudin/SEP/discussions" className="text-white hover:text-signal transition-colors font-bold">Join the conversation</a>
                 </p>
               </div>
             </div>
@@ -843,14 +890,14 @@ export default function Home() {
 
           <div className="text-center space-y-4">
             <div className="flex flex-col md:flex-row justify-center gap-6 text-gray-400">
-              <a href="mailto:1@resonanceprotocol.org" className="hover:text-signal transition-colors">
-                <strong className="text-white">Email:</strong> 1@resonanceprotocol.org
+              <a href="mailto:1@seprotocol.ai" className="hover:text-signal transition-colors">
+                <strong className="text-white">Email:</strong> 1@seprotocol.ai
               </a>
-              <a href="https://twitter.com/rAI_stack" target="_blank" className="hover:text-signal transition-colors">
-                <strong className="text-white">Twitter:</strong> @rAI_stack
+              <a href="https://twitter.com/Nikolay_Yudin_" target="_blank" className="hover:text-signal transition-colors">
+                <strong className="text-white">Twitter:</strong> @Nikolay_Yudin_
               </a>
-              <a href="https://github.com/nick-yudin/resonance-protocol" target="_blank" className="hover:text-signal transition-colors">
-                <strong className="text-white">GitHub:</strong> resonance-protocol
+              <a href="https://github.com/nick-yudin/SEP" target="_blank" className="hover:text-signal transition-colors">
+                <strong className="text-white">GitHub:</strong> SEP
               </a>
             </div>
             <p className="text-gray-500 italic mt-8">
@@ -875,7 +922,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">Nikolay Yudin</h3>
-                <p className="text-signal font-mono text-sm mb-4">Creator of Resonance Protocol</p>
+                <p className="text-signal font-mono text-sm mb-4">Creator of Semantic Event Protocol</p>
                 <p className="text-gray-400 leading-relaxed mb-4">
                   Building the infrastructure for distributed AI that no single entity can control.
                   Researching HDC, semantic computing, and cross-architecture knowledge transfer.
@@ -884,10 +931,10 @@ export default function Home() {
                   Looking for collaborators who believe AI should be like air — ubiquitous, invisible, and free.
                 </p>
                 <div className="flex gap-4">
-                  <a href="mailto:1@resonanceprotocol.org" className="text-white hover:text-signal transition-colors" title="Email">
+                  <a href="mailto:1@seprotocol.ai" className="text-white hover:text-signal transition-colors" title="Email">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
                   </a>
-                  <a href="https://twitter.com/rAI_stack" target="_blank" className="text-white hover:text-signal transition-colors" title="Twitter / X">
+                  <a href="https://twitter.com/Nikolay_Yudin_" target="_blank" className="text-white hover:text-signal transition-colors" title="Twitter / X">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                   </a>
                   <a href="https://github.com/nick-yudin" target="_blank" className="text-white hover:text-signal transition-colors" title="GitHub">
@@ -907,7 +954,7 @@ export default function Home() {
       <footer className="py-20 border-t border-white/10 px-6 bg-void">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-left">
-            <div className="text-xl font-bold text-white mb-2 tracking-tighter">RESONANCE</div>
+            <div className="text-xl font-bold text-white mb-2 tracking-tighter">SEP</div>
             <p className="text-gray-500 text-sm max-w-xs">
               An open protocol for the post-clock era of computing. <br />
               Not a product. Infrastructure.
@@ -915,9 +962,9 @@ export default function Home() {
           </div>
           
           <div className="flex gap-6 font-mono text-sm">
-            <a href="https://twitter.com/rAI_stack" target="_blank" className="text-gray-500 hover:text-white transition-colors">Twitter / X</a>
-            <a href="https://github.com/nick-yudin/resonance-protocol" className="text-gray-500 hover:text-white transition-colors">GitHub</a>
-            <a href="mailto:1@resonanceprotocol.org" className="text-gray-500 hover:text-white transition-colors">Contact</a>
+            <a href="https://twitter.com/Nikolay_Yudin_" target="_blank" className="text-gray-500 hover:text-white transition-colors">Twitter / X</a>
+            <a href="https://github.com/nick-yudin/SEP" className="text-gray-500 hover:text-white transition-colors">GitHub</a>
+            <a href="mailto:1@seprotocol.ai" className="text-gray-500 hover:text-white transition-colors">Contact</a>
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/5 text-center">

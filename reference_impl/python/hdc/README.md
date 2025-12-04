@@ -1,6 +1,6 @@
 # HDC Text Encoder — Hyperdimensional Computing Research
 
-**Phase 1 of Resonance Protocol HDC exploration**
+**Phase 1 of SEP HDC exploration**
 
 This module implements and benchmarks a Hyperdimensional Computing (HDC) approach to semantic text encoding using Binary Spatter Codes.
 
@@ -9,13 +9,15 @@ This module implements and benchmarks a Hyperdimensional Computing (HDC) approac
 ## 🎯 Research Goal
 
 **Hypothesis:** HDC can encode text semantics comparably to neural sentence transformers, with potential advantages:
-- ✅ Lower computational cost (no neural network training)
-- ✅ Explainable operations (vector algebra, not black box)
-- ✅ Hardware efficiency (binary operations, suitable for neuromorphic chips)
+- Lower computational cost (no neural network training)
+- Explainable operations (vector algebra, not black box)
+- Hardware efficiency (binary operations, suitable for neuromorphic chips)
 
 **Success Criterion:** HDC achieves Spearman correlation within 5% of sentence-transformers baseline on STS dataset.
 
-**✅ STATUS: ACHIEVED — Phase 1.1 (Projection HDC) scores ρ = 0.8201 vs baseline 0.8203 (0.0% gap)**
+**⚠️ STATUS: Phase 1.1 (Projection HDC) achieves ρ = 0.8201 vs baseline 0.8203 on STS dataset**
+
+**Note:** This is a single-author experiment on one benchmark. The approach uses pretrained embeddings as input, so true "from-scratch" HDC performance remains an open question. Independent replication needed.
 
 ---
 
@@ -70,13 +72,15 @@ hdc/
    similarity = 1 - hamming_distance(v1, v2) / dimensions
    ```
 
-**Why it works:**
-- ✅ Pretrained embeddings already encode semantics
-- ✅ Johnson-Lindenstrauss lemma guarantees distance preservation
-- ✅ Binary quantization maintains rank correlation
-- ✅ Simple and fast
+**Why this approach works:**
+- Pretrained embeddings already encode semantics (leveraging neural network knowledge)
+- Johnson-Lindenstrauss lemma suggests distance preservation in random projection
+- Binary quantization preserves relative similarities in this benchmark
+- Simple and fast implementation
 
-**Result:** Spearman ρ = 0.8201 (vs baseline 0.8203, gap = 0.0%)
+**Result on STS benchmark:** Spearman ρ = 0.8201 (vs baseline 0.8203)
+
+**Caveat:** This approach relies on pretrained neural embeddings, so it's not "pure HDC from raw text". It demonstrates that HDC can preserve semantic structure, but the initial encoding still uses a neural network.
 
 ---
 
@@ -223,8 +227,9 @@ ANALYSIS:
   Projection HDC:  0.8201
   Gap:             0.0002 (+0.0%)
 
-VERDICT: ✅ SUCCESS
-  Phase 1.1 achieves within 5% of baseline!
+VERDICT: ⚠️ BENCHMARK PASSED (with caveats)
+  Phase 1.1 preserves semantic structure on this benchmark.
+  However, relies on pretrained neural embeddings.
 
 SPEED:
   Projection HDC is 0.34× slower
@@ -242,10 +247,12 @@ Measures rank correlation between predicted similarities and human judgments.
 - **Good performance:** ρ > 0.70
 - **Excellent performance:** ρ > 0.80
 
-### Success Criteria
-- ✅ **Success:** HDC within 5% of baseline
+### Success Criteria (Single Benchmark)
+- ✅ **Target met:** HDC within 5% of baseline on STS
 - ⚠️ **Partial:** HDC within 15% of baseline
-- ❌ **Failure:** Gap > 15%
+- ❌ **Below threshold:** Gap > 15%
+
+**Note:** Meeting criterion on one benchmark does not constitute proof. Multiple benchmarks, external replication, and ablation studies needed.
 
 ---
 
@@ -286,9 +293,9 @@ If Phase 1 succeeds:
 - 96 bytes per vector (16× smaller than current)
 - Test on edge hardware (Jetson, RasPi)
 
-### Phase 3: Integration with Resonance
+### Phase 3: Integration with SEP
 - Replace sentence-transformers in `quick_demo.py`
-- Benchmark MQTT vs Resonance with HDC encoding
+- Benchmark MQTT vs SEP with HDC encoding
 - Measure real energy savings
 
 ### Phase 4: Hardware Acceleration
@@ -330,13 +337,13 @@ If you use this HDC encoder in research:
 
 ```bibtex
 @misc{resonance_hdc2025,
-  title={HDC Text Encoder for Resonance Protocol},
+  title={HDC Text Encoder for SEP},
   author={Nikolay Yudin},
   year={2025},
-  url={https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python/hdc}
+  url={https://github.com/nick-yudin/SEP/tree/main/reference_impl/python/hdc}
 }
 ```
 
 ---
 
-**Questions?** → 1@resonanceprotocol.org
+**Questions?** → 1@seprotocol.ai

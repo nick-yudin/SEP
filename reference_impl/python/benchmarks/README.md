@@ -1,12 +1,12 @@
 # Benchmarks - Performance Proofs
 
-This folder contains **quantitative demonstrations** of Resonance Protocol's efficiency compared to traditional approaches.
+This folder contains **quantitative demonstrations** of SEP's efficiency compared to traditional approaches.
 
 ---
 
 ## 🎯 Available Benchmarks
 
-### 1. MQTT vs Resonance (`mqtt_vs_resonance.py`)
+### 1. MQTT vs SEP (`mqtt_vs_resonance.py`)
 
 **Scenario:** 1 hour of vibration sensor data (12,000 samples)
 
@@ -27,7 +27,7 @@ python benchmarks/mqtt_vs_resonance.py
 
 ## 📊 Key Results
 
-| Metric | MQTT (Legacy) | Resonance | Savings |
+| Metric | MQTT (Legacy) | SEP | Savings |
 |--------|--------------|-----------|---------|
 | **Packets sent** | 12,000 | ~120 | 99.0% |
 | **Bandwidth** | 1,500 KB | ~180 KB | 88.0% |
@@ -54,13 +54,13 @@ python benchmarks/mqtt_vs_resonance.py
 }
 ```
 
-### Resonance Simulation
+### SEP Simulation
 - Converts readings to semantic embeddings
 - Transmits only when `cosine_distance > 0.35`
 - Packet size: 1536 bytes (384-d vector)
 - Typical duty cycle: 1-5%
 
-**Key insight:** Even though Resonance packets are larger, transmitting 100x fewer of them results in massive savings.
+**Key insight:** Even though SEP packets are larger, transmitting 100x fewer of them results in massive savings.
 
 ---
 
@@ -87,7 +87,7 @@ This models real-world IoT where sensors are stable most of the time, with occas
 
 **Important:** This benchmark uses **float32 vectors** (1536 bytes) for clarity and compatibility.
 
-In production systems, Resonance would use:
+In production systems, SEP would use:
 - **Ternary quantization** (BitNet 1.58b style): 96 bytes (16x smaller)
 - **HDC encoding**: 128 bytes
 - **Binary sparse vectors**: 64-128 bytes
@@ -95,7 +95,7 @@ In production systems, Resonance would use:
 **Why this matters:**
 - Current benchmark may show negative bandwidth savings
 - This is due to vector overhead, not protocol design
-- With compression, Resonance achieves 85-95% bandwidth reduction
+- With compression, SEP achieves 85-95% bandwidth reduction
 
 **What we prove:**
 - ✅ Event-driven communication reduces transmissions by 90%+
@@ -116,7 +116,7 @@ IDLE_ENERGY = 0.001 mAh/sample   # Low-power listening
 ```
 
 **MQTT:** Always transmitting → high energy  
-**Resonance:** Mostly idle → low energy
+**SEP:** Mostly idle → low energy
 
 ---
 
@@ -124,8 +124,8 @@ IDLE_ENERGY = 0.001 mAh/sample   # Low-power listening
 
 Coming soon:
 
-- **HTTP Polling vs Resonance** — REST API comparison
-- **WebSocket vs Resonance** — Streaming data efficiency
+- **HTTP Polling vs SEP** — REST API comparison
+- **WebSocket vs SEP** — Streaming data efficiency
 - **Multi-node mesh** — Scalability under load
 - **Real hardware** — Raspberry Pi energy measurements
 
@@ -150,19 +150,19 @@ This creates:
 
 ## 🎓 Interpretation
 
-### Why does Resonance win?
+### Why does SEP win?
 
 1. **Semantic Filtering:** Most sensor data is redundant. Traditional protocols don't know this.
 2. **Event-Driven:** Only meaningful changes trigger transmission.
 3. **Low Idle Cost:** Silence is nearly free energetically.
 
-### When would Resonance NOT win?
+### When would SEP NOT win?
 
 - High-frequency chaotic signals (every sample is unique)
 - Sub-millisecond latency requirements
 - Scenarios where every byte matters (space communication)
 
-But for 95% of IoT use cases, Resonance dominates.
+But for 95% of IoT use cases, SEP dominates.
 
 ---
 
@@ -172,10 +172,10 @@ If you use these benchmarks in research:
 
 ```
 @misc{resonance_benchmarks2025,
-  title={Resonance Protocol Benchmarks: MQTT vs Semantic Event Computing},
+  title={SEP Benchmarks: MQTT vs Semantic Event Computing},
   author={Nikolay Yudin},
   year={2025},
-  url={https://github.com/nick-yudin/resonance-protocol}
+  url={https://github.com/nick-yudin/SEP}
 }
 ```
 
@@ -192,4 +192,4 @@ Want to add a benchmark?
 
 ---
 
-**Questions?** → 1@resonanceprotocol.org
+**Questions?** → 1@seprotocol.ai

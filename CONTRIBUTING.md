@@ -1,6 +1,6 @@
-# Contributing to Resonance Protocol
+# Contributing to Semantic Event Protocol (SEP)
 
-Thank you for your interest in Resonance. This is a research project exploring an alternative path to AI — distributed, energy-efficient, independent.
+Thank you for your interest in SEP. This is a research project exploring an alternative path to AI — distributed, energy-efficient, independent.
 
 ---
 
@@ -100,8 +100,8 @@ def compute_similarity(vec_a: np.ndarray, vec_b: np.ndarray) -> float:
 
 - **GitHub Issues** — Bug reports, feature requests
 - **GitHub Discussions** — Questions, ideas, brainstorming
-- **Email** — [1@resonanceprotocol.org](mailto:1@resonanceprotocol.org) for private matters
-- **Twitter** — [@rAI_stack](https://twitter.com/rAI_stack) for public updates
+- **Email** — [1@seprotocol.ai](mailto:1@seprotocol.ai) for private matters
+- **Twitter** — [@Nikolay_Yudin_](https://twitter.com/Nikolay_Yudin_) for public updates
 
 ---
 
@@ -118,10 +118,10 @@ We don't have money to pay contributors yet. This is a labor of belief in a diff
 
 ## Questions?
 
-Open an issue or email [1@resonanceprotocol.org](mailto:1@resonanceprotocol.org).
+Open an issue or email [1@seprotocol.ai](mailto:1@seprotocol.ai).
 
 We're a small team and may not respond instantly, but we read everything.
 
 ---
 
-*"The clock stops. The resonance begins."*
+*"Compute only when it matters."*

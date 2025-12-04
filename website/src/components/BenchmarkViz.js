@@ -69,7 +69,7 @@ export default function BenchmarkViz() {
         <p className="text-sm text-gray-300 text-center">
           <span className="font-bold text-blue-400">Real Benchmark Data:</span> Vibration sensor monitoring for 1 hour (12,000 samples).{' '}
           <a
-            href="https://github.com/nick-yudin/resonance-protocol/tree/main/reference_impl/python/benchmarks"
+            href="https://github.com/nick-yudin/SEP/tree/main/reference_impl/python/benchmarks"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:text-blue-300 underline"
@@ -169,10 +169,10 @@ export default function BenchmarkViz() {
           </div>
         </div>
 
-        {/* Resonance */}
+        {/* SEP */}
         <div className="glass p-8 rounded-xl border-green-500/20">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-white">Resonance</h3>
+            <h3 className="text-2xl font-bold text-white">SEP</h3>
             <div className="text-xs font-mono text-green-500 px-2 py-1 bg-green-500/10 rounded">
               {benchmarkData.resonance.duty_cycle.toFixed(1)}% DUTY CYCLE
             </div>
@@ -220,7 +220,7 @@ export default function BenchmarkViz() {
       {/* Summary */}
       {currentTime >= maxTime && (
         <div className="glass p-8 rounded-xl border border-signal/20 bg-signal/5 mt-8">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">Why Resonance Wins</h3>
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Why SEP Wins</h3>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center p-6 bg-black/20 rounded-lg">
@@ -262,7 +262,7 @@ export default function BenchmarkViz() {
               <span className="font-bold text-white">The Key Insight:</span> Most sensor data is redundant noise.
             </p>
             <p className="text-center text-gray-400 text-sm">
-              Traditional protocols don't know this. Resonance filters at the semantic level.
+              Traditional protocols don't know this. SEP filters at the semantic level.
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 # Basic Examples - Learning the Protocol
 
-This folder contains **educational demonstrations** of core Resonance Protocol concepts.
+This folder contains **educational demonstrations** of core SEP concepts.
 
 ---
 
@@ -160,4 +160,4 @@ A: Add `time.sleep(0.5)` after line 75 to slow it down.
 
 ---
 
-**Questions?** → 1@resonanceprotocol.org
+**Questions?** → 1@seprotocol.ai
