@@ -415,7 +415,7 @@ export default function Home() {
               </div>
               {/* Chart */}
               <div className="mt-4 h-32 bg-noise/50 rounded-lg overflow-hidden border border-white/5">
-                <img src="/research/phase_m2.5b_curriculum_comparison.png" alt="93% transfer efficiency chart" className="w-full h-full object-contain opacity-80" />
+                <img src="/research/m3c_transfer.png" alt="93% transfer efficiency chart" className="w-full h-full object-contain opacity-80" />
               </div>
             </div>
 

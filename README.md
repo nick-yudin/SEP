@@ -8,21 +8,18 @@
 
 ---
 
-## 🚀 Quick Start (30 Seconds)
+## 🚀 Quick Start
 
-```bash
-git clone https://github.com/nick-yudin/resonance-protocol.git
-cd resonance-protocol/reference_impl/python
-pip install -r requirements.txt
-python quick_demo.py
-```
+**Three ways to explore Resonance Protocol:**
 
-**You'll see:**
-- ⚡ Semantic filtering (67% bandwidth reduction)
-- 🔄 Procrustes alignment (10^-7 error)
-- 🕸️ Mesh propagation (no central server)
+### 1️⃣ Read the Specification
+Understand the technical foundation: [**Level 1 Specification**](https://resonanceprotocol.org/docs/specs/v1.0_current/spec-v1-final)
 
-[📖 Full Python Docs](./reference_impl/python/README.md)
+### 2️⃣ Try Interactive Demos
+See HDC research results live in your browser: [**Interactive Demo**](https://resonanceprotocol.org/demo)
+
+### 3️⃣ Explore Research
+Review experimental validation (32× compression, 93% cross-architecture transfer, 100% compositional generalization): [**Research Overview**](https://resonanceprotocol.org/docs/research)
 
 ---
 
