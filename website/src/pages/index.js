@@ -395,7 +395,7 @@ export default function Home() {
                 Distributed training bandwidth reduced from 17MB to 271KB per sync using ternary quantization.
               </p>
               <div className="text-xs font-mono text-gray-500">
-                M3b Experiment • December 2024
+                M3b Experiment • December 2025
               </div>
               {/* Chart */}
               <div className="mt-4 h-32 bg-noise/50 rounded-lg overflow-hidden border border-white/5">
@@ -411,7 +411,7 @@ export default function Home() {
                 Cross-architecture transfer efficiency. DistilBERT → GPT-2 via semantic examples, not weights.
               </p>
               <div className="text-xs font-mono text-gray-500">
-                M3c′ Experiment • December 2024
+                M3c′ Experiment • December 2025
               </div>
               {/* Chart */}
               <div className="mt-4 h-32 bg-noise/50 rounded-lg overflow-hidden border border-white/5">
@@ -427,7 +427,7 @@ export default function Home() {
                 Perfect compositional generalization where Transformers achieve only 21% on unseen combinations.
               </p>
               <div className="text-xs font-mono text-gray-500">
-                M2.6 Experiment • December 2024
+                M2.6 Experiment • December 2025
               </div>
               {/* Chart */}
               <div className="mt-4 h-32 bg-noise/50 rounded-lg overflow-hidden border border-white/5">
