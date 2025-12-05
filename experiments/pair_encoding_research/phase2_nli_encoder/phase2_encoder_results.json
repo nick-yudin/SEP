@@ -1,0 +1,40 @@
+{
+  "experiment": "Phase 2: NLI-Tuned Encoder",
+  "dataset": "MNLI",
+  "train_size": 5000,
+  "test_size": 500,
+  "hdc_dim": 4096,
+  "results": {
+    "MiniLM (baseline)": {
+      "A_float": 0.53,
+      "B_projected": 0.514,
+      "C_ternary": 0.49,
+      "D_full_hdc": 0.504,
+      "embedding_dim": 384,
+      "feature_dim": 1536
+    },
+    "NLI-DistilRoBERTa": {
+      "A_float": 0.666,
+      "B_projected": 0.648,
+      "C_ternary": 0.654,
+      "D_full_hdc": 0.644,
+      "embedding_dim": 768,
+      "feature_dim": 3072
+    },
+    "NLI-MPNet": {
+      "A_float": 0.678,
+      "B_projected": 0.64,
+      "C_ternary": 0.65,
+      "D_full_hdc": 0.638,
+      "embedding_dim": 768,
+      "feature_dim": 3072
+    }
+  },
+  "best_encoder": "NLI-MPNet",
+  "best_float_accuracy": 0.678,
+  "best_hdc_accuracy": 0.638,
+  "baseline_improvement": 0.14800000000000002,
+  "hdc_overhead": 0.040000000000000036,
+  "verdict": "NLI_ENCODER_HELPS",
+  "timestamp": "2025-12-05T17:52:02.265871"
+}

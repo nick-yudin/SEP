@@ -1,0 +1,59 @@
+{
+  "experiment": "Phase 3: Project-First-Bind-Later",
+  "dataset": "MNLI",
+  "encoder": "sentence-transformers/nli-mpnet-base-v2",
+  "train_size": 5000,
+  "test_size": 500,
+  "hdc_dim": 4096,
+  "results": {
+    "0_baseline_concat": {
+      "float": 0.64,
+      "ternary": 0.614,
+      "dim": 4096,
+      "overhead": 0.026000000000000023
+    },
+    "1_project_bundle": {
+      "float": 0.554,
+      "ternary": 0.556,
+      "dim": 4096,
+      "overhead": -0.0020000000000000018
+    },
+    "2_project_permute": {
+      "float": 0.54,
+      "ternary": 0.54,
+      "dim": 4096,
+      "overhead": 0.0
+    },
+    "3_project_tanh": {
+      "float": 0.572,
+      "ternary": 0.546,
+      "dim": 4096,
+      "overhead": 0.025999999999999912
+    },
+    "4_project_tanh_permute": {
+      "float": 0.536,
+      "ternary": 0.554,
+      "dim": 4096,
+      "overhead": -0.018000000000000016
+    },
+    "5_two_vectors": {
+      "float": 0.676,
+      "ternary": 0.656,
+      "dim": 16384,
+      "overhead": 0.020000000000000018
+    },
+    "6_two_vectors_tanh": {
+      "float": 0.668,
+      "ternary": 0.646,
+      "dim": 16384,
+      "overhead": 0.02200000000000002
+    }
+  },
+  "best_strategy": "5_two_vectors",
+  "best_float": 0.676,
+  "best_ternary": 0.656,
+  "phase2_best": 0.638,
+  "improvement_vs_phase2": 0.018000000000000016,
+  "verdict": "LIMITED",
+  "timestamp": "2025-12-05T18:41:33.259739"
+}

@@ -1,0 +1,21 @@
+{
+  "experiment": "Phase 1: Ablation Study",
+  "dataset": "MNLI",
+  "train_size": 5000,
+  "test_size": 500,
+  "encoder": "all-MiniLM-L6-v2",
+  "hdc_dim": 4096,
+  "results": {
+    "A_float_baseline": 0.546,
+    "B_float_projected": 0.516,
+    "C_ternary_only": 0.488,
+    "D_ternary_projected": 0.526
+  },
+  "loss_analysis": {
+    "projection_loss": 0.030000000000000027,
+    "quantization_loss": 0.05800000000000005,
+    "combined_loss": 0.020000000000000018
+  },
+  "bottleneck": "encoder/features",
+  "timestamp": "2025-12-05T17:42:53.886735"
+}
