@@ -1,0 +1,35 @@
+{
+  "experiment": "M4e: HDC vs Standard KD",
+  "paper": "...Until We Found Meaning",
+  "task": "SST-2 Sentiment",
+  "train_size": 5000,
+  "results": {
+    "teacher": {
+      "acc": 0.8899082568807339,
+      "params": "~110M"
+    },
+    "standard_kd": {
+      "acc": 0.8864678899082569,
+      "params": 49346,
+      "hidden": 64
+    },
+    "tiny_kd": {
+      "acc": 0.8830275229357798,
+      "params": 24674,
+      "hidden": 32
+    },
+    "hdc_transfer": {
+      "acc": 0.8727064220183486,
+      "params": 1049346,
+      "dim": 4096
+    }
+  },
+  "hdc_vs_kd_ratio": 0.9844760672703752,
+  "hdc_vs_teacher_ratio": 0.9806701030927835,
+  "unique_hdc_properties": [
+    "cross-lingual (91%)",
+    "semantic arithmetic (110%)",
+    "ternary compression (32x)"
+  ],
+  "timestamp": "2025-12-05T21:25:30.193617"
+}
