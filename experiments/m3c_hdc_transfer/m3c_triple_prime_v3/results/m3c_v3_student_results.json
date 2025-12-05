@@ -1,0 +1,30 @@
+{
+  "phase": "M3c_triple_prime_v2",
+  "experiment": "Curriculum-Optimized HDC Semantic Transfer",
+  "node": "student",
+  "teacher_model": "distilbert-base-uncased",
+  "student_model": "ImprovedHDCClassifier (ResidualBlocks)",
+  "student_params": 14976514,
+  "hdc_dim": 10000,
+  "curation_method": "kmeans",
+  "curriculum_strategy": "sharp (easy\u2192hard)",
+  "constant_lr": 0.0005,
+  "lr_decay": false,
+  "num_easy": 500,
+  "num_hard": 500,
+  "teacher_accuracy_before": 0.514,
+  "teacher_accuracy_after": 0.878,
+  "student_accuracy_before": 0.53,
+  "student_accuracy_after": 0.47,
+  "transfer_efficiency_pct": -16.4835164835165,
+  "baseline_efficiency_pct": 59.2,
+  "improvement_over_baseline": -75.6835164835165,
+  "verdict": "IMPROVED",
+  "insights_applied": [
+    "M2.5c: HDC K-means curation",
+    "M2.5e: Sharp curriculum (easy\u2192hard)",
+    "M2.5e: Constant LR (no decay)",
+    "M2.5e: Distance from centroid = difficulty"
+  ],
+  "timestamp": "2025-12-05T01:36:00.777163"
+}

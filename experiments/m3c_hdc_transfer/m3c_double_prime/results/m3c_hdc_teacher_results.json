@@ -1,0 +1,15 @@
+{
+  "phase": "M3c_double_prime",
+  "node": "teacher_hdc",
+  "experiment": "TRUE HDC Semantic Transfer - Teacher",
+  "model": "distilbert-base-uncased",
+  "train_samples": 2000,
+  "test_samples": 500,
+  "accuracy_before": 0.422,
+  "accuracy_after": 0.868,
+  "improvement": 0.446,
+  "hdc_dim": 4096,
+  "hdc_examples": 500,
+  "packet_size_kb": 667.96875,
+  "timestamp": "2025-12-05T00:12:26.412797"
+}

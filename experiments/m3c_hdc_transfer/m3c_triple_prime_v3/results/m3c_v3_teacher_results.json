@@ -1,0 +1,21 @@
+{
+  "phase": "M3c_triple_prime_v2",
+  "node": "teacher",
+  "model": "distilbert-base-uncased",
+  "accuracy_before": 0.514,
+  "accuracy_after": 0.878,
+  "hdc_dim": 10000,
+  "curation": "kmeans",
+  "n_clusters": 500,
+  "curriculum": "sharp",
+  "n_easy": 500,
+  "n_hard": 500,
+  "total_examples": 1000,
+  "optimizations": [
+    "M2.5c: HDC K-means curation",
+    "M2.5e: Sharp curriculum (easy\u2192hard)",
+    "M2.5e: Difficulty = distance from centroid",
+    "Learned projection (contrastive)"
+  ],
+  "timestamp": "2025-12-05T01:33:36.582652"
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "M3c_double_prime",
+  "experiment": "TRUE HDC Semantic Transfer",
+  "node": "student_hdc",
+  "teacher_model": "distilbert-base-uncased",
+  "student_model": "HDC Classifier (no text input)",
+  "student_params": 2229506,
+  "hdc_dim": 4096,
+  "hdc_examples": 500,
+  "test_samples": 500,
+  "teacher_accuracy_before": 0.422,
+  "teacher_accuracy_after": 0.868,
+  "teacher_improvement": 0.446,
+  "student_accuracy_before": 0.47,
+  "student_accuracy_after": 0.734,
+  "student_improvement": 0.264,
+  "transfer_efficiency_pct": 59.19282511210763,
+  "verdict": "GOOD",
+  "key_insight": "Student learned from HDC vectors ONLY - never saw text",
+  "timestamp": "2025-12-05T00:15:03.551963"
+}
