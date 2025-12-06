@@ -34,6 +34,7 @@ const sidebars = {
         },
         'research/m2-6-compositional',
         'research/m3-series',
+        'research/m4-series',
       ],
     },
   ],
