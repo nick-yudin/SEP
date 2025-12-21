@@ -32,15 +32,15 @@ graph TD
     D02 --- OVERVIEW[overview.md]
 
     PAPERS --- P1[Cross_Architecture_HDC_Transfer/]
-    P1 --- P1_TEX[main.tex, PDF, figures]
+    P1 --- P1_TEX["main.tex + PDF + figures"]
 
     PAPERS_EXP --- PE1[Cross_Architecture_HDC_Transfer/]
     PE1 --- PE1_NB[notebooks/]
     PE1 --- PE1_RES[results/]
     PE1 --- PE1_README[README.md]
 
-    EXPERIMENTS --- EXP_M3C[m3c_* (3 variants)]
-    EXPERIMENTS --- EXP_M4[M4a,b,c,d,e]
+    EXPERIMENTS --- EXP_M3C["m3c (3 variants)"]
+    EXPERIMENTS --- EXP_M4["M4a, M4b, M4c, M4d, M4e"]
     EXPERIMENTS --- EXP_PAIR[pair_encoding_research]
 
     REFIMPL --- PYTHON[python/]
