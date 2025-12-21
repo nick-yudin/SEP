@@ -9,6 +9,8 @@ The repository is organized by function to support development across documentat
 ```mermaid
 graph TD
     ROOT[SEP /] --- DOCS[docs/]
+    ROOT --- PAPERS[papers/]
+    ROOT --- PAPERS_EXP[papers_experiments/]
     ROOT --- WEBSITE[website/]
     ROOT --- EXPERIMENTS[experiments/]
     ROOT --- REFIMPL[reference_impl/]
@@ -28,6 +30,14 @@ graph TD
     D02 --- M3[M3 Series]
     D02 --- M4[M4 Series]
     D02 --- OVERVIEW[overview.md]
+
+    PAPERS --- P1[Cross_Architecture_HDC_Transfer/]
+    P1 --- P1_TEX[main.tex, PDF, figures]
+
+    PAPERS_EXP --- PE1[Cross_Architecture_HDC_Transfer/]
+    PE1 --- PE1_NB[notebooks/]
+    PE1 --- PE1_RES[results/]
+    PE1 --- PE1_README[README.md]
 
     EXPERIMENTS --- EXP_M3C[m3c_* (3 variants)]
     EXPERIMENTS --- EXP_M4[M4a,b,c,d,e]
@@ -64,7 +74,51 @@ Contains all Markdown documentation that is published via Docusaurus.
 | `m3-series.md` | Distributed intelligence (M3a, M3b, M3c) |
 | `m4-series.md` | Semantic transfer (M4c cross-lingual, M4d compositionality, M4e vs KD) |
 
-### 2. `/experiments` (Experimental Validation)
+### 2. `/papers` (Published Papers)
+
+Contains LaTeX sources, PDFs, and figures for published academic papers.
+
+| Folder | Description | Status |
+|--------|-------------|--------|
+| `Cross_Architecture_HDC_Transfer/` | Paper on cross-architecture knowledge transfer via HDC | Published on [Zenodo](https://zenodo.org/records/18009693) |
+
+**Structure:**
+- `main.tex` - LaTeX source
+- `*.pdf` - Compiled PDF
+- `*.png`, `*.jpg` - Figures and diagrams
+- `references.bib` - Bibliography
+- `generate_figures.py` - Script to generate figures from experimental data
+
+**Note:** Temporary LaTeX build files (`*.aux`, `*.log`, etc.) are excluded via `.gitignore`.
+
+### 3. `/papers_experiments` (Reproducible Experiments for Papers)
+
+Contains experimental code, Jupyter notebooks, and results that validate claims made in published papers. Each paper has its own subfolder with notebooks and documentation.
+
+| Paper | Folder | Contents |
+|-------|--------|----------|
+| Cross-Architecture HDC Transfer | `Cross_Architecture_HDC_Transfer/` | Notebooks, results, README |
+
+**Structure (per paper):**
+- `README.md` - Detailed experiment documentation
+- `notebooks/` - Jupyter notebooks with reproducible experiments
+- `results/` - Generated plots (`.png`) and data (`.json`)
+
+**Example:**
+```
+papers_experiments/
+└── Cross_Architecture_HDC_Transfer/
+    ├── README.md
+    ├── notebooks/
+    │   ├── Paper1_Experiment1_Complete_Pipeline.ipynb
+    │   └── Paper1_Experiment2_Teacher_Size.ipynb
+    └── results/
+        ├── stage1_hdc_dimension.png
+        ├── stage2_alignment_methods.png
+        └── experiment1_complete.json
+```
+
+### 4. `/experiments` (Experimental Validation)
 
 Contains all experimental code, notebooks, and results validating SEP protocol claims.
 
@@ -97,7 +151,7 @@ Contains all experimental code, notebooks, and results validating SEP protocol c
 - Results (`.json`, `.png`)
 - Checkpoints (where applicable)
 
-### 3. `/website` (Web Front-end)
+### 5. `/website` (Web Front-end)
 
 Contains the Docusaurus configuration and static assets for [seprotocol.ai](https://seprotocol.ai).
 
@@ -112,7 +166,7 @@ Contains the Docusaurus configuration and static assets for [seprotocol.ai](http
 | `package.json` | Project dependencies (Node/NPM) | |
 | `build/` | **Ignored.** Generated static site output | Stored only on the web server |
 
-### 4. `/reference_impl` (Code Implementations)
+### 6. `/reference_impl` (Code Implementations)
 
 Contains runnable codebases that adhere strictly to the Level 1 Specification.
 

@@ -36,10 +36,18 @@ m3*_node_*.png
 *credentials*.json
 
 # --------------------
-# PAPERS (PRIVATE DRAFTS)
+# PAPERS
 # --------------------
-# Exclude papers/ (work in progress, not ready for public)
-papers/
+# Include papers/ folder with LaTeX sources and PDFs
+# Exclude temporary LaTeX build files
+papers/**/*.aux
+papers/**/*.log
+papers/**/*.out
+papers/**/*.synctex.gz
+papers/**/*.fls
+papers/**/*.fdb_latexmk
+papers/**/*.blg
+papers/**/*.bbl
 
-# Include papers_experiments/ (experimental code for papers)
+# Include papers_experiments/ (experimental code and notebooks for papers)
 !papers_experiments/

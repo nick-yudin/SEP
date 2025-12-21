@@ -1,139 +1,95 @@
-# Paper 1: Cross-Architecture Knowledge Transfer via HDC
+# Papers & Experiments
 
-Experimental validation of Hyperdimensional Computing (HDC) for transferring learned representations between different neural network architectures.
+This directory contains reproducible experiments and code that validate claims made in published papers. Each paper has its own subfolder with Jupyter notebooks, results, and detailed documentation.
 
-## Overview
+## Purpose
 
-These notebooks reproduce the experiments from our research on using HDC as an intermediate representation for cross-architecture knowledge transfer. The core idea: instead of transferring raw embeddings (which are architecture-specific), we project them into a shared HDC space using ternary vectors {-1, 0, +1}.
+The goal of this directory is to ensure **full reproducibility** of our research. Every claim in our papers can be verified by running the corresponding notebooks.
 
-**Key question**: Can a classifier trained on Teacher's HDC vectors work on Student's HDC vectors?
+## Structure
 
-## Results Summary
+Each paper has the following structure:
 
-### Experiment 1: Complete Transfer Pipeline
-
-| Stage | Finding |
-|-------|---------|
-| HDC Quantization | 6-10% accuracy loss from float→ternary |
-| Alignment Methods | Contrastive: **96%** efficiency vs Procrustes: 79%, CCA: 83% |
-| Model Pairs | Bidirectional transfer achieves **94-99%** efficiency |
-| Task Generalization | SST-2: 95%, AG News: 100% efficiency |
-
-### Experiment 2: Teacher Size Study
-
-| Teacher | Parameters | Transfer Accuracy | Efficiency |
-|---------|------------|-------------------|------------|
-| DistilBERT | 66M | **78.9%** | **98.8%** |
-| GPT-2 | 124M | 74.3% | 93.9% |
-| Llama 3.1 | 8B | 77.7% | 98.3% |
-| Qwen 2.5 | 14B | 75.6% | 96.0% |
-
-**Unexpected finding**: Larger teachers did not improve transfer quality. The smallest model (DistilBERT) achieved the best results. We hypothesize this is due to:
-1. Architectural compatibility (encoder→encoder works better)
-2. Alignment bottleneck (projecting 5120d Qwen embeddings to 512d shared space loses more information than 768d DistilBERT)
-3. Task simplicity (SST-2 may not benefit from larger model capacity)
-
-## Notebooks
-
-### Experiment 1: Complete Pipeline
-**File**: `Paper1_Experiment1_Complete_Pipeline.ipynb`
-
-**Hardware**: Google Colab T4 or L4 GPU (16GB VRAM)
-
-**Runtime**: ~2-3 hours
-
-**What it tests**:
-- Stage 0: Fine-tuned model ceilings (baselines)
-- Stage 1: HDC dimension sweep (1024, 2048, 4096, 8192)
-- Stage 2: Alignment methods (None, Procrustes, CCA, Contrastive)
-- Stage 3: Bidirectional transfer between model pairs
-- Stage 4: Generalization to different tasks (SST-2, AG News)
-
-### Experiment 2: Teacher Size Study
-**File**: `Paper1_Experiment2_Teacher_Size.ipynb`
-
-**Hardware**: Google Colab A100 GPU (40GB VRAM) — required for Llama 8B and Qwen 14B even with 4-bit quantization
-
-**Runtime**: ~3-4 hours
-
-**What it tests**:
-- Does a stronger teacher produce better HDC transfer?
-- Teachers: DistilBERT (66M), GPT-2 (124M), Llama 3.1 (8B), Qwen 2.5 (14B)
-- Student: DistilBERT (fixed)
-- Task: SST-2 sentiment classification
-
-**Requirements**:
-- Hugging Face account with access token
-- Accept Llama 3.1 license at https://huggingface.co/meta-llama/Llama-3.1-8B
-- Add `HF_TOKEN` to Colab secrets (Settings → Secrets)
-
-## Reproduce Our Results
-
-We encourage independent verification of these findings. To run:
-
-1. Open notebook in Google Colab
-2. Select appropriate GPU runtime (T4/L4 for Exp1, A100 for Exp2)
-3. For Experiment 2: add HF_TOKEN to Colab secrets
-4. Run all cells
-
-**Expected outputs**:
-- `paper1_experiment1_results.json` — full numerical results
-- `paper1_experiment1_results.png` — visualization
-- Console output with per-stage summaries
-
-If you get significantly different results, please open an issue — we want to understand why.
-
-## Configuration
-
-Both notebooks use similar hyperparameters:
-
-```python
-{
-    'hdc_dim': 4096,           # HDC vector dimension
-    'tau': 0.3,                # Ternary quantization threshold (× std)
-    'train_size': 2000-3000,   # Training samples
-    'test_size': 500,          # Test samples  
-    'anchor_size': 500,        # Samples for alignment training
-    'seeds': [42, 123, 456],   # For statistical significance
-    'contrastive_epochs': 20,  # Alignment training epochs
-}
+```
+papers_experiments/
+└── [Paper_Name]/
+    ├── README.md          # Detailed experiment documentation
+    ├── notebooks/         # Jupyter notebooks with experiments
+    │   ├── Experiment1_*.ipynb
+    │   └── Experiment2_*.ipynb
+    └── results/          # Generated plots and data
+        ├── *.png         # Result visualizations
+        └── *.json        # Raw numerical results
 ```
 
-## Key Implementation Details
+## Published Papers
 
-**HDC Encoding**:
-```python
-projected = embeddings @ random_projection  # (N, 768) → (N, 4096)
-threshold = 0.3 * std(projected)
-ternary[projected > threshold] = +1
-ternary[projected < -threshold] = -1
-# Result: 32× compression (float32 → int2)
-```
+### 1. Cross-Architecture Knowledge Transfer via HDC
 
-**Contrastive Alignment**:
-```python
-# Project teacher and student to shared space
-t_proj = normalize(MLP(teacher_emb))  # (N, 768) → (N, 512)
-s_proj = normalize(MLP(student_emb))  # (N, 768) → (N, 512)
+**Publication:** [Zenodo (2025)](https://zenodo.org/records/18009693)
 
-# Train: same text should have similar projections
-loss = -cosine(t_proj, s_proj) + margin_loss(t_proj, s_proj_shuffled)
-```
+**Paper Source:** [papers/Cross_Architecture_HDC_Transfer/](../papers/Cross_Architecture_HDC_Transfer/)
 
-## Caveats
+**Experiments:** [Cross_Architecture_HDC_Transfer/](./Cross_Architecture_HDC_Transfer/)
 
-These results are preliminary and come with important limitations:
+**Key Results:**
+- HDC quantization: 6-10% accuracy loss from float→ternary
+- Contrastive alignment: 96% efficiency vs Procrustes (79%), CCA (83%)
+- Bidirectional transfer: 94-99% efficiency across model pairs
+- Teacher size study: DistilBERT (66M) achieved best transfer at 98.8% efficiency
 
-1. **Single task dominance**: Most experiments use SST-2 (binary sentiment). Results may differ on more complex tasks.
+**Notebooks:**
+- `Experiment1_Complete_Pipeline.ipynb` - Full transfer pipeline validation
+- `Experiment2_Teacher_Size.ipynb` - Teacher model size impact study
 
-2. **Alignment bottleneck**: Our contrastive aligner projects to 512d shared space. Larger models with 4096d+ embeddings may lose more information.
+---
 
-3. **No sentence-pair tasks**: We excluded NLI/paraphrase tasks where our HDC encoding performed poorly (near-random accuracy). Different encoding strategies may be needed.
+## Running Experiments
 
-4. **Limited model diversity**: We tested BERT-family and GPT-family. Other architectures (T5, Mamba, etc.) not evaluated.
+### Prerequisites
+
+All notebooks are designed to run in **Google Colab** with the following requirements:
+
+- **Experiment 1**: T4 or L4 GPU (16GB VRAM), ~2-3 hours runtime
+- **Experiment 2**: A100 GPU (40GB VRAM), ~3-4 hours runtime
+
+### How to Run
+
+1. Navigate to the paper's experiment directory
+2. Read the paper-specific README for detailed instructions
+3. Open the notebook in Google Colab
+4. Select the appropriate GPU runtime
+5. For experiments requiring model access (e.g., Llama):
+   - Create a Hugging Face account and accept model licenses
+   - Add `HF_TOKEN` to Colab secrets (Settings → Secrets)
+6. Run all cells
+
+### Expected Outputs
+
+Each notebook generates:
+- `.json` files with numerical results
+- `.png` files with visualizations
+- Console output with experiment summaries
+
+## Contributing
+
+If you reproduce our experiments and get different results:
+
+1. Check hardware requirements (GPU type, VRAM)
+2. Verify random seeds match the paper
+3. Open an issue in the main repository with:
+   - Your results vs. paper results
+   - Hardware configuration
+   - Software versions (Python, PyTorch, transformers)
+
+We want to understand any discrepancies to improve reproducibility.
+
+## Citation
+
+If you use these experiments in your research, please cite the corresponding paper. See the paper-specific README for BibTeX entries.
 
 ## Links
 
-- Project: https://seprotocol.ai
-- Repository: https://github.com/nick-yudin/SEP
-- Contact: 1@seprotocol.ai
+- **Main Repository**: [github.com/nick-yudin/SEP](https://github.com/nick-yudin/SEP)
+- **Website**: [seprotocol.ai](https://seprotocol.ai)
+- **Contact**: [1@seprotocol.ai](mailto:1@seprotocol.ai)

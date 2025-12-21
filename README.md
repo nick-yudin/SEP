@@ -141,9 +141,22 @@ SEP/
 ├── docs/                      # The Single Source of Truth
 │   ├── 00_intro/
 │   │   └── manifesto.md       # The philosophical foundation (Level 0)
-│   └── 01_specs/
-│       └── v1.0_current/
-│           └── spec_v1_final.md  # The technical standard (Level 1)
+│   ├── 01_specs/
+│   │   └── v1.0_current/
+│   │       └── spec_v1_final.md  # The technical standard (Level 1)
+│   └── 02_research/           # Research documentation (M2-M4 series)
+│
+├── papers/                    # Published papers (LaTeX sources & PDFs)
+│   └── Cross_Architecture_HDC_Transfer/
+│       ├── main.tex           # LaTeX source
+│       ├── Cross_Architecture_HDC_Transfer.pdf  # Published paper
+│       └── *.png              # Figures and results
+│
+├── papers_experiments/        # Reproducible experiments for papers
+│   └── Cross_Architecture_HDC_Transfer/
+│       ├── README.md          # Experiment documentation
+│       ├── notebooks/         # Jupyter notebooks
+│       └── results/           # Result plots and data
 │
 ├── reference_impl/            # Working code
 │   └── python/
@@ -181,11 +194,17 @@ python quick_demo.py
 ### For Philosophers
 **[Manifesto](./docs/00_intro/manifesto.md)** — Why we are abandoning clock-based computing.
 
-### For Engineers  
+### For Engineers
 **[Level 1 Specification](./docs/01_specs/v1.0_current/spec_v1_final.md)** — Wire protocol, embeddings, alignment mechanism.
 
 ### For Builders
 **[Python Reference](./reference_impl/python/README.md)** — Working code with examples.
+
+### For Researchers
+**[Papers & Experiments](./papers_experiments/)** — Reproducible experiments validating our research claims.
+
+**Published Work:**
+- **"Cross-Architecture Knowledge Transfer via HDC"** (2025) — [Zenodo](https://zenodo.org/records/18009693) | [Experiments](./papers_experiments/Cross_Architecture_HDC_Transfer/)
 
 ---
 
